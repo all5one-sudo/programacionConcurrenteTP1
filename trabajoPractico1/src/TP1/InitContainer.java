@@ -19,7 +19,7 @@ public class InitContainer extends  Container {
             if (!loadCompleted) {
                 container.addLast(image);
                 amountOfImages++;
-                System.out.printf("[InitContainer (Size: %d)] %s image load <ID: %d - Imagen: %s>\n", this.container.size(), Thread.currentThread().getName(), image.getId());
+                System.out.printf("[InitContainer (Size: %d)] %s image load <ID>: %d \n", this.container.size(), Thread.currentThread().getName(), image.getId());
                 if(amountOfImages == targetAmountOfImages) {
                     loadCompleted = true;
                 }
@@ -27,40 +27,35 @@ public class InitContainer extends  Container {
             else {
                 throw new FullContainerException("Full container");
             }
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        finally {
+        } finally {
             lock.writeLock().unlock();
         }
     }
 
     public Image getImage (Image last) throws InterruptedException {
         lock.readLock().lock();
+
         try {
             if (container.size() > 0) {
                 try {
-                    return container.get(container.indexOf(last) + 1);
+                    return container.get(container.indexOf(last)+1);  //SACAMOS EL +1
+                } catch (IndexOutOfBoundsException e) {
+                    return container.get(new Random().nextInt(container.size()));
                 }
-                catch (IndexOutOfBoundsException e) {
-                    return container.get(new Random().nextInt(container.size())); //SACA IMAGEN RANDOM DEL CONTAINER
-                }
-            }
-            else {
+            } else {
                 return null;
             }
-        }
-        finally {
+        } finally {
             lock.readLock().unlock();
         }
+
     }
 
     public void remove(Image image) {
         lock.writeLock().lock();
         try {
             if(this.container.remove(image)) {
-                System.out.printf("[InitBuffer (Size: %d)] %s data removed <ID: %d - Value: %s>\n", this.container.size() , Thread.currentThread().getName(), image.getId());
+                System.out.printf("[Initcontainer (Size: %d)] %s data removed <ID: %d - Value: %s>\n", this.container.size() , Thread.currentThread().getName(), image.getId());
 
             }
         } finally {
@@ -69,7 +64,7 @@ public class InitContainer extends  Container {
     }
 
     public boolean isNotLoadCompleted() {
-        lock.readLock().lock();
+        lock.readLock().lock();     //
 
         try {
             return !loadCompleted;
@@ -78,21 +73,25 @@ public class InitContainer extends  Container {
         }
     }
 
-    public Image poll() throws InterruptedException{
+    public Image CopyAndDeleted(Image image) throws InterruptedException{
         lock.writeLock().lock();
 
         try {
-
             if (container.size() > 0) {
-                Image value = this.container.poll();
 
-                System.out.printf("[InitContainer (Size: %d)] %s Image removed and Cloned <ID: %d - Value: %s>\n", this.container.size(), Thread.currentThread().getName(), value.getId());
 
-                return value;
+                Image forClone = new Image(image.getImprovements(),image.getAmIResized(),image.getId(), true,image.getAmIImproved());
+
+                this.container.remove(image);
+
+                System.out.printf("[InitContainer (Size: %d)] %s Image removed and Cloned <ID: %d \n", this.container.size(), Thread.currentThread().getName(),image.getId());
+
+                return forClone;
             } else {
                 return null;
             }
-        } finally {
+        }
+        finally {
             lock.writeLock().unlock();
         }
     }

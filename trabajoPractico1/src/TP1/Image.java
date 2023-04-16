@@ -15,6 +15,8 @@ public class Image {
     private boolean resized;
     private boolean clonedToFinalContainer;
 
+    private boolean iamImproved;
+
     private static int newId() {
         synchronized (key) {
             return generator++;
@@ -22,18 +24,60 @@ public class Image {
     }
 
     public Image() {
+        improvements = new ArrayList<>();
         resized = false;
         id = newId();
         lock = new ReentrantReadWriteLock(false); //  no hay fairness  ; no es necesario que tenga false
         clonedToFinalContainer = false;
-        improvements = null;
+        iamImproved=false;
+    }
+
+    public ReadWriteLock getLock() {
+        return lock;
+    }
+
+    public List<Improver> getImprovements() {
+        return improvements;
+    }
+
+    public static int getGenerator() {
+        return generator;
+    }
+
+    public static void setGenerator(int generator) {
+        Image.generator = generator;
+    }
+
+    public void setResized(boolean resized) {
+        this.resized = resized;
+    }
+
+    public void setClonedToFinalContainer(boolean clonedToFinalContainer) {
+        this.clonedToFinalContainer = clonedToFinalContainer;
+    }
+
+    public boolean isIamImproved() {
+        return iamImproved;
+    }
+
+    public void setIamImproved(boolean iamImproved) {
+        this.iamImproved = iamImproved;
+    }
+
+    public Image(List<Improver> improvements, boolean resized, int id, boolean clonedToFinalContainer, boolean iamImproved) {      //es solamente para el Clone
+        this.improvements = improvements;
+        this.resized = resized;
+        this.id = id;
+        lock = new ReentrantReadWriteLock(false); //  no hay fairness  ; no es necesario que tenga false
+        this.clonedToFinalContainer = clonedToFinalContainer;
+        this.iamImproved = iamImproved;
     }
 
     public void improve(Improver improver) {
         lock.writeLock().lock();
         try {
             improvements.add(improver);
-            System.out.printf("[InitContainer] %s: improved image quality <ID: %d - Image: %s>\n", Thread.currentThread().getName(), id);
+            System.out.printf("[InitContainer] %s: improved image quality <ID: %d\n", Thread.currentThread().getName(), id);
         } finally {
             lock.writeLock().unlock();
         }
@@ -58,6 +102,19 @@ public class Image {
             lock.readLock().unlock();
         }
     }
+
+
+    public void resize() {
+        lock.writeLock().lock();
+        try {
+            this.resized = true;
+         //   System.out.printf("[InitContainer] %s: resize image quality <ID: %d - Image: %s>\n", Thread.currentThread().getName(), id);
+        } finally {
+            lock.writeLock().unlock();
+        }
+    }
+
+
 
     public boolean isClonedToFinalContainer() {
         lock.readLock().lock();
@@ -86,8 +143,25 @@ public class Image {
     public int getId() {
         return id;
     }
-    
-} //LO DEJAMOS AQUI
+
+
+    public void setIamImprove(){
+       iamImproved=true;
+
+    }
+
+    public boolean isResized(){
+         return resized;
+    }
+
+    public boolean getAmIImproved(){
+        return iamImproved;
+    }
+
+    public boolean getAmIResized(){
+        return resized;
+    }
+}
 
 
 

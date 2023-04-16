@@ -17,7 +17,8 @@ public class FinalContainer extends Container {
 
         try {
 
-            if(!cloneCompleted) {
+            if(!cloneCompleted && image != null) {  // agregamos esto pq el return null de DopyandDelete nos perjudicaba
+
                 this.container.addLast(image);
 
                 amountOfImages++;
@@ -26,10 +27,14 @@ public class FinalContainer extends Container {
                     cloneCompleted = true;
                 }
 
-                System.out.printf("[FinalContainer (Size: %d)] %s Image clone <ID: %d - Value: %s>\n", this.container.size(), Thread.currentThread().getName(), image.getId(), image.getValue());
+               System.out.printf("[FinalContainer (Size: %d)] %s Image clone <ID: %d \n", this.container.size(), Thread.currentThread().getName(), image.getId());
 
             }
-        } finally {
+        }
+        catch (NullPointerException e) {
+            System.out.println("Imagen a clonar nula!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+        finally {
             lock.writeLock().unlock();
         }
     }
