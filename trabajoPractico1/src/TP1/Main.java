@@ -19,7 +19,7 @@ public class Main {
 
     //    for (int j = 0; j < numberOfExecutions; j++) {
             InitContainer initContainer = new InitContainer(targetAmountOfData);
-            FinalContainer finalContainer = new FinalContainer();
+            FinalContainer finalContainer = new FinalContainer(targetAmountOfData);
 
             Loader[] loaders = new Loader[numberOfLoaders];
             Cloner[] cloners = new Cloner[numberOfClones];
@@ -31,7 +31,7 @@ public class Main {
             Thread[] resizerThreads = new Thread[numberOfResizers];
             Thread[] clonersThreads = new Thread[numberOfClones];
 
-            TP1.Log log = new TP1.Log(initContainer, finalContainer, loaders, improvers, resizers, cloners , loadersThreads, improversThreads, resizerThreads);
+            TP1.Log log = new TP1.Log(initContainer, finalContainer, loaders, improvers, resizers, cloners , loadersThreads, improversThreads, resizerThreads, clonersThreads);
 
         for (int i = 0; i < numberOfLoaders; i++) {
             loaders[i] = new Loader(initContainer, "TP1.Loader " + i);

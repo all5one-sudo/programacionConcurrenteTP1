@@ -9,6 +9,8 @@ public class Cloner implements Runnable {
 
     private final FinalContainer finalContainer;
 
+    private static final Object LLAVE = new Object();
+
     private final  String name;
 
     private Image lastImageClone;
@@ -17,12 +19,12 @@ public class Cloner implements Runnable {
 
     public Cloner(InitContainer initContainer, FinalContainer finalContainer, String name) {
 
-
         this.initContainer = initContainer;
         this.finalContainer = finalContainer;
         this.name = name;
     //  lastImageClone= initContainer.container.get(new Random().nextInt(initContainer.container.size()));
         lastImageClone=null;
+        imageCloned =0;
 
     }
 
@@ -34,18 +36,30 @@ public class Cloner implements Runnable {
 
                 if ( lastImageClone  != null) {
 
-                    if(lastImageClone.getAmIResized()) {
+                    if(lastImageClone.isResized())
+                    {
+                        if(!lastImageClone.isIamDeletefromInitContainer())
+                        {
+                            if(lastImageClone.tryCloneToFinalContainer()){
+                            if(finalContainer.Clone(initContainer.CopyAndDeleted( lastImageClone),this,imageCloned)) {
+                                System.out.println("Bandera"+ lastImageClone.getId()+ this.getName());
 
-                           finalContainer.Clone(initContainer.CopyAndDeleted( lastImageClone));
-
-                            imageCloned++;
-                            TimeUnit.MILLISECONDS.sleep(2);
+                                increaseImageClone();
+                                TimeUnit.MILLISECONDS.sleep(10);
+                            }
+                            else{
+                                break;
+                            }
                         }
+                        }
+
+
+}
                     }
                 }
             catch (InterruptedException e) {
                 e.printStackTrace();
-                break;
+
             }
         }
     }
@@ -76,6 +90,14 @@ public class Cloner implements Runnable {
 
     public void setImageCloned(int imageCloned) {
         this.imageCloned = imageCloned;
+    }
+    public void increaseImageClone(){
+
+       synchronized (LLAVE){
+           imageCloned++;
+
+       }
+
     }
 }
 

@@ -8,6 +8,8 @@ public class Resizer implements Runnable {
 
     private final String name;
 
+    private static final Object LLAVE = new Object();
+
     private Image lastImageResized;
 
     private int totalImagesResized;
@@ -47,10 +49,12 @@ public class Resizer implements Runnable {
 
                     if(lastImageResized.getAmIImproved()) {
 
-                        if (!lastImageResized.isResized()) {
-                            lastImageResized.resize();
+                        if ( lastImageResized.resize()) {
 
-                            totalImagesResized++;
+                        //    System.out.println("IDDDDDDDDDDDDDDD  " + lastImageResized.getId());
+
+                            increaseImageResizer();
+
                             TimeUnit.MILLISECONDS.sleep(2);
                         }
                     }
@@ -68,12 +72,17 @@ public class Resizer implements Runnable {
         return initContainer;
     }
 
-    public void setTotalImprovements(int totalImprovements) {
-        this.totalImagesResized = totalImprovements;
-    }
+
+
 
     public String getName() {
         return name;
+    }
+
+    public void increaseImageResizer(){
+        synchronized (LLAVE){
+            totalImagesResized++;
+        }
     }
 
 

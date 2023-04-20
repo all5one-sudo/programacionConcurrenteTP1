@@ -15,6 +15,8 @@ public class Image {
     private boolean resized;
     private boolean clonedToFinalContainer;
 
+    private boolean IamDeletefromInitContainer;
+
     private boolean iamImproved;
 
     private static int newId() {
@@ -30,6 +32,7 @@ public class Image {
         lock = new ReentrantReadWriteLock(false); //  no hay fairness  ; no es necesario que tenga false
         clonedToFinalContainer = false;
         iamImproved=false;
+        IamDeletefromInitContainer=false;
     }
 
     public ReadWriteLock getLock() {
@@ -73,11 +76,21 @@ public class Image {
         this.iamImproved = iamImproved;
     }
 
-    public void improve(Improver improver) {
+    public boolean isIamDeletefromInitContainer() {
+        return IamDeletefromInitContainer;
+    }
+
+    public boolean improve(Improver improver) {
         lock.writeLock().lock();
         try {
             improvements.add(improver);
-            System.out.printf("[InitContainer] %s: improved image quality <ID: %d\n", Thread.currentThread().getName(), id);
+
+            if ( improvements.size() == improver.getTotalThreadsImprovements()) {
+                this.setIamImprove();
+               return true;
+            }
+            else{return false;}
+
         } finally {
             lock.writeLock().unlock();
         }
@@ -104,17 +117,24 @@ public class Image {
     }
 
 
-    public void resize() {
+    public boolean resize() {
         lock.writeLock().lock();
         try {
-            this.resized = true;
-         //   System.out.printf("[InitContainer] %s: resize image quality <ID: %d - Image: %s>\n", Thread.currentThread().getName(), id);
+            if(!isResized()) {
+                resized = true;
+
+                return true;
+            } else {
+                return false;
+            }
         } finally {
             lock.writeLock().unlock();
         }
     }
 
-
+    public void setIamDeletefromInitContainer() {
+        IamDeletefromInitContainer = false;
+    }
 
     public boolean isClonedToFinalContainer() {
         lock.readLock().lock();
@@ -151,8 +171,35 @@ public class Image {
     }
 
     public boolean isResized(){
-         return resized;
+        lock.readLock().lock();
+        try {
+            return resized;
+        }
+        finally {
+            lock.readLock().unlock();
+        }
+
+
     }
+
+    public boolean tryCloneToFinalContainer(){
+        lock.writeLock().lock();
+        try {
+            if(!IamDeletefromInitContainer){
+                IamDeletefromInitContainer=true;
+
+                return true;
+            }else {
+                return false;
+            }
+
+        }finally {
+            lock.writeLock().unlock();        }
+
+    }
+
+
+
 
     public boolean getAmIImproved(){
         return iamImproved;

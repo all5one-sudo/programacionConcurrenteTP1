@@ -13,7 +13,7 @@ public class InitContainer extends  Container {
         this.amountOfImages = 0;
     }
 
-    public void load(Image image) throws InterruptedException, FullContainerException {
+    public boolean load(Image image, Loader loader,int cantidad) throws InterruptedException{
         lock.writeLock().lock();
         try {
             if (!loadCompleted) {
@@ -22,14 +22,16 @@ public class InitContainer extends  Container {
                 System.out.printf("[InitContainer (Size: %d)] %s image load <ID>: %d \n", this.container.size(), Thread.currentThread().getName(), image.getId());
                 if(amountOfImages == targetAmountOfImages) {
                     loadCompleted = true;
+                     loader.setImageLoad(cantidad+1);
                 }
             }
             else {
-                throw new FullContainerException("Full container");
+                System.out.printf("ESTA saosaijdijoasdijasdijasdijasdijssiaojas");
             }
         } finally {
             lock.writeLock().unlock();
         }
+        return loadCompleted;
     }
 
     public Image getImage (Image last) throws InterruptedException {
@@ -77,7 +79,7 @@ public class InitContainer extends  Container {
         lock.writeLock().lock();
 
         try {
-            if (container.size() > 0) {
+            if (container.size() > 0 && image.isIamDeletefromInitContainer()) {
 
 
                 Image forClone = new Image(image.getImprovements(),image.getAmIResized(),image.getId(), true,image.getAmIImproved());
@@ -96,7 +98,17 @@ public class InitContainer extends  Container {
         }
     }
 
+    public boolean isLoadCompleted() {
+        return loadCompleted;
+    }
 
+    public int getTargetAmountOfImages() {
+        return targetAmountOfImages;
+    }
+
+    public int getAmountOfImages() {
+        return amountOfImages;
+    }
 }
 
 

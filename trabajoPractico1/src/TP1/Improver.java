@@ -8,18 +8,23 @@ public class Improver implements Runnable {
 
     private int totalImprovements;
 
+    private  int totalImagesImprovedByThread;
+
     private final String name;
 
     private final  int totalThreadsImprovements;
 
+    private static final Object LLAVE = new Object();
+
     private Image lastImageImprove;
+
 
     public Improver(InitContainer initContainer, String name , int totalThreadsImprovements) {
         this.initContainer = initContainer;
         totalImprovements=0;
         this.name = name;
         this.totalThreadsImprovements= totalThreadsImprovements;
-
+        totalImagesImprovedByThread =0;
         lastImageImprove= null;
     }
 
@@ -30,16 +35,14 @@ public class Improver implements Runnable {
         while(initContainer.getSize() > 0 || initContainer.isNotLoadCompleted()) {
             try {
                 lastImageImprove = initContainer.getImage( lastImageImprove );
-
                 if ( lastImageImprove  != null) {
                     if (! lastImageImprove .isImproved(this)) {
-                         lastImageImprove .improve(this);
-
-                        totalImprovements++;
-
-                        if ( lastImageImprove.getNumberOfImprover() == totalThreadsImprovements) {
-                            lastImageImprove.setIamImprove();
+                       increaseImageImprover();
+                        if ( lastImageImprove.improve(this)) {
+                            System.out.println("IDDDDDDDDDDDDDDDDDDDD " + lastImageImprove.getId());
+                            totalImagesImprovedByThread++;
                         }
+
                     }
                     TimeUnit.MILLISECONDS.sleep(2);
                 }
@@ -78,6 +81,17 @@ public class Improver implements Runnable {
 
     public void setLastImageImprove(Image lastImageImprove) {
         this.lastImageImprove = lastImageImprove;
+    }
+
+    public int getTotalImagesImprovedByThread() {
+        return totalImagesImprovedByThread;
+    }
+
+
+    public void increaseImageImprover(){
+        synchronized (LLAVE){
+            totalImprovements++;
+        }
     }
 }
 

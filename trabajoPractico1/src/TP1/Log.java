@@ -4,6 +4,17 @@ import TP1.FinalContainer;
 import TP1.InitContainer;
 import TP1.Loader;
 
+/*
+El sistema debe contar con un LOG con fines estadísticos, el cual registre cada 500
+milisegundos en un archivo:
+- Cantidad de imágenes insertadas en el contenedor.
+- Cantidad de imágenes mejoradas completamente.
+- Cantidad de imágenes ajustadas.
+- Cantidad de imágenes que han finalizado el último proceso.
+- El estado de cada hilo del sistema.
+ */
+
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,7 +41,7 @@ public class Log extends Thread {
 
     public static void clearFile() {
         try {
-            PrintWriter pw_log = new PrintWriter(".\\data\\log.txt");
+            PrintWriter pw_log = new PrintWriter(".\\Estadistica.txt");
             pw_log.print("");
             pw_log.close();
         } catch (IOException e) {
@@ -67,7 +78,7 @@ public class Log extends Thread {
         while(true) {
             try {
                 writeLog();
-                TimeUnit.SECONDS.sleep(2);
+                TimeUnit.SECONDS.sleep(0);
             } catch (InterruptedException e) {
                 writeLog();
                 break;
@@ -77,11 +88,12 @@ public class Log extends Thread {
 
     private void writeLog() {
         try {
-            PrintWriter pw_log = new PrintWriter(new FileWriter(".\\data\\log.txt", true));
+            PrintWriter pw_log = new PrintWriter(new FileWriter(".\\Estadistica.txt", true));
 
             pw_log.print("*-------------------------------------------------------------------------------*\n");
             pw_log.printf("Execution time: %f [Seg]\n", (float)(new Date().getTime() - initTime.getTime()) / 1000);
-            pw_log.printf("InitBuffer size: %d\n", initContainer.getSize());
+            pw_log.printf("InitContainer at the moment size: %d\n", initContainer.getSize());
+            pw_log.printf("InitContainer size: %d\n", initContainer.getAmountOfImages());
             pw_log.printf("finalContainer size: %d\n", finalContainer.getSize());
             pw_log.print("*-------------------------------------------------------------------------------*\n\n");
 
@@ -90,48 +102,94 @@ public class Log extends Thread {
             Resizer[] resizersCopy = resizers;
             Cloner[] clonersCopy = cloners;
 
+            /////////////////// LOADERS ///////////////////////////////
+
             int totalImageLoad = 0;
             for (Loader load: loadersCopy) {
-               // totalDataLost += loader.getDataLost();
                 totalImageLoad += load.getImageLoad();
             }
 
-            pw_log.println("      Total loaders:");
+            pw_log.println("      Total loaders:\n");
             pw_log.printf("       Loaded images: %d\n", totalImageLoad);
-            pw_log.printf("       Loaders: ");
+            pw_log.printf("       Loaders: \n");
+
             for (Loader loader: loadersCopy) {
                 pw_log.printf("   %s:\n", loader.getName());
+                pw_log.printf("   Image Load: %d\n", loader.getImageLoad());
             }
 
 
-            pw_log.println("   Improve Totals:");
-            pw_log.printf("       data revised: %d\n", totalDataRevised);
-            pw_log.printf("       data copied: %d\n\n", totalDataMoved);
+            /**
+             * ////////// IMPROVERS //////////
+             */
+
+            int totalImageImproved = 0;
+            for (Improver improver: improversCopy) {
+                totalImageImproved += improver.getTotalImagesImprovedByThread();
+            }
+
+            pw_log.println("      Total improvers:\n");
+            pw_log.printf("       improved images: %d\n", totalImageImproved);
+            pw_log.printf("       Improvers: \n");
+
+            for (Improver improver: improversCopy) {
+                pw_log.printf("   %s:\n", improver.getName());
+                pw_log.printf("   Image Load: %d\n", improver.getTotalImagesImprovedByThread());
+            }
+
+
+
+
+            /**
+             * ////////// RESIZERS //////////
+             */
+
+          int totalImageResized=0;
+
+            for (Resizer resizer: resizersCopy) {
+                totalImageResized += resizer.getTotalImagesResized();
+
+            }
+
+            pw_log.println("   Resizers Totals:");
+            pw_log.printf("       Image resized: %d\n", totalImageResized);
+
 
             for (Resizer resizer: resizersCopy) {
                 pw_log.printf("   %s:\n", resizer.getName());
                 pw_log.printf("      resized images: %d\n", resizer.getTotalImagesResized());
-                pw_log.printf("      data copied: %d\n", reviewer.getDataMoved());
-
-                pw_log.printf("      responsibility percentage in copied data: %f %%\n\n", 100 * (float) reviewer.getDataMoved() / totalDataMoved);
+                pw_log.printf("      responsibility percentage in copied data: %f %%\n\n", 100 * (float) resizer.getTotalImagesResized() / totalImageLoad);
             }
 
-            int totalDataConsumed = 0;
-            for (Consumer consumer: consumersCopy) {
-                totalDataConsumed += consumer.getDataConsumed();
+
+
+            /////////////////// CLONER ///////////////////////////////
+            int totalImagesCloned=0;
+
+            pw_log.println("   Cloners Totals:\n");
+
+
+            for (Cloner cloner : clonersCopy) {
+                totalImagesCloned += cloner.getImageCloned();
+
             }
 
-            pw_log.println("   Consumers Totals:");
-            pw_log.printf("       data taken: %d\n\n", totalDataConsumed);
 
-            for (Consumer consumer: consumersCopy) {
-                pw_log.printf("   %s:\n", consumer.getName());
-                pw_log.printf("      data taken: %d\n", consumer.getDataConsumed());
+            pw_log.println("   Cloners Totals:");
+            pw_log.printf("       Image cloned: %d\n",  totalImagesCloned);
 
-                pw_log.printf("      responsibility percentage in taken data: %f %%\n\n", 100 * (float) consumer.getDataConsumed() / totalDataConsumed);
+
+            for (Cloner cloner : clonersCopy) {
+
+                pw_log.printf("   %s:\n", cloner.getName());
+                pw_log.printf("      Images Cloned: %d\n", cloner.getImageCloned());
+
+                pw_log.printf("      responsibility percentage in taken data: %f %%\n\n", 100 * (float) cloner.getImageCloned() / totalImageLoad);
             }
 
-            pw_log.println("   Threads State:");
+            /////////////////// Estados de los Hilos ///////////////////////////////
+
+            pw_log.println("   Threads State:\n");
 
             for (Thread loaderThread: loadersThreads) {
                 pw_log.printf("      %s: %s\n", loaderThread.getName(), loaderThread.getState().name());
@@ -139,14 +197,20 @@ public class Log extends Thread {
 
             pw_log.println();
 
-            for (Thread consumerThread: consumersThreads) {
-                pw_log.printf("      %s: %s\n", consumerThread.getName(), consumerThread.getState().name());
+            for (Thread improverThread: improversThreads) {
+                pw_log.printf("      %s: %s\n", improverThread.getName(), improverThread.getState().name());
             }
 
             pw_log.println();
 
-            for (Thread reviewerThread: reviewersThreads) {
-                pw_log.printf("      %s: %s\n", reviewerThread.getName(), reviewerThread.getState().name());
+            for (Thread resizerThread: resizersThreads) {
+                pw_log.printf("      %s: %s\n", resizerThread.getName(), resizerThread.getState().name());
+            }
+
+            pw_log.println();
+
+            for (Thread clonerThread: clonersThreads) {
+                pw_log.printf("      %s: %s\n", clonerThread.getName(), clonerThread.getState().name());
             }
 
             pw_log.println();
