@@ -2,10 +2,8 @@ package TP1;
 
 import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReadWriteLock;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Image {
 
@@ -31,10 +29,10 @@ public class Image {
         improvements = new ArrayList<>();
         resized = false;
         id = newId();
-        lock = new ReentrantLock(false); //  no hay fairness  ; no es necesario que tenga false
+        lock = new ReentrantLock(false); // no hay fairness, no es necesario que tenga false
         clonedToFinalContainer = false;
-        iamImproved=false;
-        IamDeletefromInitContainer=false;
+        iamImproved = false;
+        IamDeletefromInitContainer = false;
     }
 
     public Lock getLock() {
@@ -69,11 +67,12 @@ public class Image {
         this.iamImproved = iamImproved;
     }
 
-    public Image(List<Improver> improvements, boolean resized, int id, boolean clonedToFinalContainer, boolean iamImproved) {      //es solamente para el Clone
+    public Image(List<Improver> improvements, boolean resized, int id, boolean clonedToFinalContainer,
+            boolean iamImproved) { // es solamente para el Clone
         this.improvements = improvements;
         this.resized = resized;
         this.id = id;
-        lock = new ReentrantLock(false); //  no hay fairness  ; no es necesario que tenga false
+        lock = new ReentrantLock(false); // no hay fairness ; no es necesario que tenga false
         this.clonedToFinalContainer = clonedToFinalContainer;
         this.iamImproved = iamImproved;
     }
@@ -87,11 +86,12 @@ public class Image {
         try {
             improvements.add(improver);
 
-            if ( improvements.size() == improver.getTotalThreadsImprovements()) {
+            if (improvements.size() == improver.getTotalThreadsImprovements()) {
                 this.setIamImprove();
-               return true;
+                return true;
+            } else {
+                return false;
             }
-            else{return false;}
 
         } finally {
             lock.unlock();
@@ -99,14 +99,13 @@ public class Image {
     }
 
     public boolean isImproved(Improver improver) {
-            return improvements.contains(improver);
+        return improvements.contains(improver);
     }
-
 
     public boolean resize() {
         lock.lock();
         try {
-            if(!isResized()) {
+            if (!isResized()) {
                 resized = true;
 
                 return true;
@@ -118,66 +117,43 @@ public class Image {
         }
     }
 
-
-
-
-
     public int getId() {
         return id;
     }
 
-
-    public void setIamImprove(){
-       iamImproved=true;
-
-    }
-
-    public boolean isResized(){
-
-            return resized;
+    public void setIamImprove() {
+        iamImproved = true;
 
     }
 
-    public boolean tryCloneToFinalContainer(){
+    public boolean isResized() {
+
+        return resized;
+
+    }
+
+    public boolean tryCloneToFinalContainer() {
         lock.lock();
         try {
-            if(!IamDeletefromInitContainer){
-                IamDeletefromInitContainer=true;
+            if (!IamDeletefromInitContainer) {
+                IamDeletefromInitContainer = true;
 
                 return true;
-            }else {
+            } else {
                 return false;
             }
 
-        }finally {
-            lock.unlock();        }
+        } finally {
+            lock.unlock();
+        }
 
     }
 
-
-
-
-    public boolean getAmIImproved(){
+    public boolean getAmIImproved() {
         return iamImproved;
     }
 
-    public boolean getAmIResized(){
+    public boolean getAmIResized() {
         return resized;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    

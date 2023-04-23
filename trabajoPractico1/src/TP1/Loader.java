@@ -1,6 +1,7 @@
 package TP1;
 
 import java.util.concurrent.TimeUnit;
+
 public class Loader implements Runnable {
 
     private int imageLoad;
@@ -20,19 +21,17 @@ public class Loader implements Runnable {
     public void run() {
         while (initContainer.isNotLoadCompleted()) {
             try {
-               if(!initContainer.load(new Image(),this,imageLoad))
-                {
+                if (!initContainer.load(new Image(), this, imageLoad)) {
                     increaseImageLoad();
                     TimeUnit.MILLISECONDS.sleep(50);
                 }
-
             } catch (Exception e) {
                 e.printStackTrace();
-            break;}
+                break;
+            }
         }
 
     }
-
 
     public void setImageLoad(int imageLoad) {
         this.imageLoad = imageLoad;
@@ -46,10 +45,8 @@ public class Loader implements Runnable {
         return imageLoad;
     }
 
-    public void increaseImageLoad(){
-            imageLoad++;
+    public void increaseImageLoad() {
+        imageLoad++;
     }
 
 }
-
-

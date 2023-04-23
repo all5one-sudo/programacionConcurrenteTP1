@@ -9,8 +9,7 @@ public class Cloner implements Runnable {
 
     private final FinalContainer finalContainer;
 
-
-    private final  String name;
+    private final String name;
 
     private Image lastImageClone;
 
@@ -21,50 +20,44 @@ public class Cloner implements Runnable {
         this.initContainer = initContainer;
         this.finalContainer = finalContainer;
         this.name = name;
-        lastImageClone=null;
-        imageCloned =0;
+        lastImageClone = null;
+        imageCloned = 0;
 
     }
 
     @Override
     public void run() {
-        while(initContainer.getSize() > 0 || initContainer.isNotLoadCompleted()) {
+        while (initContainer.getSize() > 0 || initContainer.isNotLoadCompleted()) {
             try {
-                  lastImageClone = initContainer.getImage(lastImageClone);
+                lastImageClone = initContainer.getImage(lastImageClone);
+                if (lastImageClone != null) {
 
-                if ( lastImageClone  != null) {
+                    if (lastImageClone.isResized()) {
+                        if (!lastImageClone.isIamDeletefromInitContainer()) {
+                            if (lastImageClone.tryCloneToFinalContainer()) {
+                                if (finalContainer.Clone(initContainer.CopyAndDeleted(lastImageClone), this,
+                                        imageCloned)) {
+                                    increaseImageClone();
+                                    TimeUnit.MILLISECONDS.sleep(50);
+                                }
 
-                    if(lastImageClone.isResized())
-                    {
-                        if(!lastImageClone.isIamDeletefromInitContainer())
-                        {
-                            if(lastImageClone.tryCloneToFinalContainer()){
-                            if(finalContainer.Clone(initContainer.CopyAndDeleted( lastImageClone),this,imageCloned)) {
-                                increaseImageClone();
-                                TimeUnit.MILLISECONDS.sleep(50);
                             }
-
                         }
-                        }
-}
                     }
                 }
-            catch (InterruptedException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
                 break;
 
-            }catch (NullPointerException | IndexOutOfBoundsException e){
+            } catch (NullPointerException | IndexOutOfBoundsException e) {
                 e.printStackTrace();
             }
         }
     }
 
-
-
     public String getName() {
         return name;
     }
-
 
     public int getImageCloned() {
         return imageCloned;
@@ -75,5 +68,3 @@ public class Cloner implements Runnable {
     }
 
 }
-
-
