@@ -8,9 +8,10 @@ public class Resizer implements Runnable {
 
     private final String name;
 
-    private static final Object LLAVE = new Object();
 
     private Image lastImageResized;
+
+
 
     private int totalImagesResized;
 
@@ -23,25 +24,16 @@ public class Resizer implements Runnable {
     }
 
 
-    public Image getLastImageResized() {
-        return lastImageResized;
-    }
-
-    public void setLastImageResized(Image lastImageResized) {
-        this.lastImageResized = lastImageResized;
-    }
 
     public int getTotalImagesResized() {
         return totalImagesResized;
     }
 
-    public void setTotalImagesResized(int totalImagesResized) {
-        this.totalImagesResized = totalImagesResized;
-    }
+
 
     @Override
     public void run() {
-        while(initContainer.getSize() > 0 || initContainer.isNotLoadCompleted()) {  //ver idea de esteban
+        while(initContainer.getSize() > 0 || initContainer.isNotLoadCompleted()) {
             try {
                 lastImageResized = initContainer.getImage(lastImageResized);
 
@@ -50,29 +42,25 @@ public class Resizer implements Runnable {
                     if(lastImageResized.getAmIImproved()) {
 
                         if ( lastImageResized.resize()) {
-
-                        //    System.out.println("IDDDDDDDDDDDDDDD  " + lastImageResized.getId());
-
+                            System.out.println("Imagen resizeada: " + lastImageResized.getId()+" por hilo: " + Thread.currentThread().getName());
                             increaseImageResizer();
 
-                            TimeUnit.MILLISECONDS.sleep(2);
+                            TimeUnit.MILLISECONDS.sleep(50);
                         }
                     }
             }
-            }catch (InterruptedException e) {
+            }catch (NullPointerException e) {
                 e.printStackTrace();
-                break;
+                System.out.println("SE BORRO DATO DEL CONTAINER, INTENTO DE NUEVO");
+            } catch (InterruptedException | IndexOutOfBoundsException | IllegalArgumentException e) {
+               e.printStackTrace();
             }
         }
     }
 
-
-
     public InitContainer getInitContainer() {
         return initContainer;
     }
-
-
 
 
     public String getName() {
@@ -80,9 +68,7 @@ public class Resizer implements Runnable {
     }
 
     public void increaseImageResizer(){
-        synchronized (LLAVE){
             totalImagesResized++;
-        }
     }
 
 

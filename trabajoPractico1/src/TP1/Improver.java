@@ -14,8 +14,6 @@ public class Improver implements Runnable {
 
     private final  int totalThreadsImprovements;
 
-    private static final Object LLAVE = new Object();
-
     private Image lastImageImprove;
 
 
@@ -39,33 +37,25 @@ public class Improver implements Runnable {
                     if (! lastImageImprove .isImproved(this)) {
                        increaseImageImprover();
                         if ( lastImageImprove.improve(this)) {
-                            System.out.println("IDDDDDDDDDDDDDDDDDDDD " + lastImageImprove.getId());
+                            System.out.println("Imagen improved: " + lastImageImprove.getId() +" por hilo: " + Thread.currentThread().getName());
                             totalImagesImprovedByThread++;
                         }
 
                     }
-                    TimeUnit.MILLISECONDS.sleep(2);
+                    TimeUnit.MILLISECONDS.sleep(50);
                 }
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                break;
+            }catch(NullPointerException e){
+                e.printStackTrace();
+
             }
         }
     }
 
 
-    public InitContainer getInitContainer() {
-        return initContainer;
-    }
 
-    public int getTotalImprovements() {
-        return totalImprovements;
-    }
-
-    public void setTotalImprovements(int totalImprovements) {
-        this.totalImprovements = totalImprovements;
-    }
 
     public String getName() {
         return name;
@@ -75,13 +65,6 @@ public class Improver implements Runnable {
         return totalThreadsImprovements;
     }
 
-    public Image getLastImageImprove() {
-        return lastImageImprove;
-    }
-
-    public void setLastImageImprove(Image lastImageImprove) {
-        this.lastImageImprove = lastImageImprove;
-    }
 
     public int getTotalImagesImprovedByThread() {
         return totalImagesImprovedByThread;
@@ -89,9 +72,9 @@ public class Improver implements Runnable {
 
 
     public void increaseImageImprover(){
-        synchronized (LLAVE){
+
             totalImprovements++;
-        }
+
     }
 }
 

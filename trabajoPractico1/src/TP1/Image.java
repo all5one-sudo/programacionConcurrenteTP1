@@ -1,13 +1,15 @@
 package TP1;
 
 import java.util.ArrayList;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.List;
+import java.util.concurrent.locks.ReentrantLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 public class Image {
 
-    private final ReadWriteLock lock;
+    private final Lock lock;
     private final List<Improver> improvements;
     private final int id;
     private static int generator = 0;
@@ -29,13 +31,13 @@ public class Image {
         improvements = new ArrayList<>();
         resized = false;
         id = newId();
-        lock = new ReentrantReadWriteLock(false); //  no hay fairness  ; no es necesario que tenga false
+        lock = new ReentrantLock(false); //  no hay fairness  ; no es necesario que tenga false
         clonedToFinalContainer = false;
         iamImproved=false;
         IamDeletefromInitContainer=false;
     }
 
-    public ReadWriteLock getLock() {
+    public Lock getLock() {
         return lock;
     }
 
@@ -71,7 +73,7 @@ public class Image {
         this.improvements = improvements;
         this.resized = resized;
         this.id = id;
-        lock = new ReentrantReadWriteLock(false); //  no hay fairness  ; no es necesario que tenga false
+        lock = new ReentrantLock(false); //  no hay fairness  ; no es necesario que tenga false
         this.clonedToFinalContainer = clonedToFinalContainer;
         this.iamImproved = iamImproved;
     }
@@ -81,7 +83,7 @@ public class Image {
     }
 
     public boolean improve(Improver improver) {
-        lock.writeLock().lock();
+        lock.lock();
         try {
             improvements.add(improver);
 
@@ -92,33 +94,17 @@ public class Image {
             else{return false;}
 
         } finally {
-            lock.writeLock().unlock();
+            lock.unlock();
         }
     }
 
     public boolean isImproved(Improver improver) {
-        lock.readLock().lock();
-        try {
             return improvements.contains(improver);
-        } finally {
-            lock.readLock().unlock();
-        }
-    }
-
-
-    public int getNumberOfImprover() {
-        lock.readLock().lock();
-        try {
-            return improvements.size();
-        }
-        finally {
-            lock.readLock().unlock();
-        }
     }
 
 
     public boolean resize() {
-        lock.writeLock().lock();
+        lock.lock();
         try {
             if(!isResized()) {
                 resized = true;
@@ -128,37 +114,13 @@ public class Image {
                 return false;
             }
         } finally {
-            lock.writeLock().unlock();
+            lock.unlock();
         }
     }
 
-    public void setIamDeletefromInitContainer() {
-        IamDeletefromInitContainer = false;
-    }
 
-    public boolean isClonedToFinalContainer() {
-        lock.readLock().lock();
-        try {
-            return clonedToFinalContainer;
-        }
-        finally {
-            lock.readLock().unlock();
-        }
-    }
 
-    public boolean tryClonedToFinalContainer() {
-        lock.writeLock().lock();
-        try {
-            if(!clonedToFinalContainer) {
-                clonedToFinalContainer = true;
-                return true;
-            } else {
-                return false;
-            }
-        } finally {
-            lock.writeLock().unlock();
-        }
-    }
+
 
     public int getId() {
         return id;
@@ -171,19 +133,13 @@ public class Image {
     }
 
     public boolean isResized(){
-        lock.readLock().lock();
-        try {
-            return resized;
-        }
-        finally {
-            lock.readLock().unlock();
-        }
 
+            return resized;
 
     }
 
     public boolean tryCloneToFinalContainer(){
-        lock.writeLock().lock();
+        lock.lock();
         try {
             if(!IamDeletefromInitContainer){
                 IamDeletefromInitContainer=true;
@@ -194,7 +150,7 @@ public class Image {
             }
 
         }finally {
-            lock.writeLock().unlock();        }
+            lock.unlock();        }
 
     }
 

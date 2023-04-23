@@ -13,70 +13,45 @@ public class InitContainer extends  Container {
         this.amountOfImages = 0;
     }
 
-    public boolean load(Image image, Loader loader,int cantidad) throws InterruptedException{
-        lock.writeLock().lock();
+    public boolean load(Image image, Loader loader,int cantidad) throws Exception{
+        lock.lock();
         try {
             if (!loadCompleted) {
                 container.addLast(image);
                 amountOfImages++;
-                System.out.printf("[InitContainer (Size: %d)] %s image load <ID>: %d \n", this.container.size(), Thread.currentThread().getName(), image.getId());
+                System.out.println("imagen cargada: "+ image.getId());
                 if(amountOfImages == targetAmountOfImages) {
                     loadCompleted = true;
                      loader.setImageLoad(cantidad+1);
+                     throw new Exception("contenedor lleno");
                 }
             }
-            else {
-                System.out.printf("ESTA saosaijdijoasdijasdijasdijasdijssiaojas");
-            }
+
         } finally {
-            lock.writeLock().unlock();
+            lock.unlock();
         }
         return loadCompleted;
     }
 
     public Image getImage (Image last) throws InterruptedException {
-        lock.readLock().lock();
-
-        try {
             if (container.size() > 0) {
-                try {
-                    return container.get(container.indexOf(last)+1);  //SACAMOS EL +1
-                } catch (IndexOutOfBoundsException e) {
-                    return container.get(new Random().nextInt(container.size()));
-                }
+                    int aux= new Random().nextInt(container.size());
+                    return container.get(aux);
             } else {
                 return null;
             }
-        } finally {
-            lock.readLock().unlock();
-        }
-
     }
 
-    public void remove(Image image) {
-        lock.writeLock().lock();
-        try {
-            if(this.container.remove(image)) {
-                System.out.printf("[Initcontainer (Size: %d)] %s data removed <ID: %d - Value: %s>\n", this.container.size() , Thread.currentThread().getName(), image.getId());
 
-            }
-        } finally {
-            lock.writeLock().unlock();
-        }
-    }
 
     public boolean isNotLoadCompleted() {
-        lock.readLock().lock();     //
 
-        try {
             return !loadCompleted;
-        } finally {
-            lock.readLock().unlock();
-        }
+
     }
 
     public Image CopyAndDeleted(Image image) throws InterruptedException{
-        lock.writeLock().lock();
+        lock.lock();
 
         try {
             if (container.size() > 0 && image.isIamDeletefromInitContainer()) {
@@ -86,7 +61,7 @@ public class InitContainer extends  Container {
 
                 this.container.remove(image);
 
-                System.out.printf("[InitContainer (Size: %d)] %s Image removed and Cloned <ID: %d \n", this.container.size(), Thread.currentThread().getName(),image.getId());
+               System.out.printf("Imagen copiada y borrada del contenedor inicial: " + forClone.getId());
 
                 return forClone;
             } else {
@@ -94,17 +69,11 @@ public class InitContainer extends  Container {
             }
         }
         finally {
-            lock.writeLock().unlock();
+            lock.unlock();
         }
     }
 
-    public boolean isLoadCompleted() {
-        return loadCompleted;
-    }
 
-    public int getTargetAmountOfImages() {
-        return targetAmountOfImages;
-    }
 
     public int getAmountOfImages() {
         return amountOfImages;

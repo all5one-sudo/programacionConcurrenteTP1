@@ -18,7 +18,7 @@ public class FinalContainer extends Container {
 
 
     public boolean Clone(Image image, Cloner cloner,int cantidad) throws InterruptedException {
-        lock.writeLock().lock();
+        lock.lock();
 
         try {
 
@@ -31,9 +31,9 @@ public class FinalContainer extends Container {
                 System.out.printf("[FinalContainer (Size: %d)] %s Image clone <ID: %d \n", this.container.size(), Thread.currentThread().getName(), image.getId());
 
                 if(amountOfImages == targetAmountOfImages) {
-                    System.out.println("LEle entre"+ amountOfImages);
                     cloneCompleted = true;
                     cloner.increaseImageClone();
+                    throw new InterruptedException("Contenedor final lleno");
                 }
 
 
@@ -41,10 +41,10 @@ public class FinalContainer extends Container {
 
         }
         catch (NullPointerException e) {
-            System.out.println("Imagen a clonar nula!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println("Imagen a clonar nula");
         }
         finally {
-            lock.writeLock().unlock();
+            lock.unlock();
         }
 
         return  !cloneCompleted;
@@ -52,15 +52,7 @@ public class FinalContainer extends Container {
     }
 
 
-    public boolean isNotReviewCompleted() {
-        lock.readLock().lock();
 
-        try {
-            return !cloneCompleted;
-        } finally {
-            lock.readLock().unlock();
-        }
-    }
 
 
 }

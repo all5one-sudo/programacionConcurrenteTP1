@@ -22,7 +22,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class Log extends Thread {
-
+    private final int targetAmountOfData;
     private final Date initTime;
     private final InitContainer initContainer;
     private final FinalContainer finalContainer;
@@ -49,7 +49,7 @@ public class Log extends Thread {
         }
     }
 
-    public Log(InitContainer initContainer,
+    public Log(int targetAmountOfData,InitContainer initContainer,
                FinalContainer finalContainer,
                Loader[] loaders,
                Improver[] improvers,
@@ -69,16 +69,16 @@ public class Log extends Thread {
         this.resizersThreads = resizersThreads;
         this.clonersThreads = clonersThreads;
         this.loadersThreads = loadersThreads;
-
+        this.targetAmountOfData=targetAmountOfData;
         initTime = new Date();
     }
 
     @Override
     public void run() {
-        while(true) {
+        while(finalContainer.getSize()<=targetAmountOfData) {
             try {
                 writeLog();
-                TimeUnit.SECONDS.sleep(0);
+                TimeUnit.MILLISECONDS.sleep(500);
             } catch (InterruptedException e) {
                 writeLog();
                 break;
@@ -130,11 +130,11 @@ public class Log extends Thread {
 
             pw_log.println("      Total improvers:\n");
             pw_log.printf("       improved images: %d\n", totalImageImproved);
-            pw_log.printf("       Improvers: \n");
+            pw_log.printf("   Improvers: \n");
 
             for (Improver improver: improversCopy) {
                 pw_log.printf("   %s:\n", improver.getName());
-                pw_log.printf("   Image Load: %d\n", improver.getTotalImagesImprovedByThread());
+                pw_log.printf("   Image Load: %d\n\n", improver.getTotalImagesImprovedByThread());
             }
 
 

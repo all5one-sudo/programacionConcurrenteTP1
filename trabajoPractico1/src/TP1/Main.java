@@ -8,7 +8,6 @@ public class Main {
     private static final int numberOfImprovers = 3;
     private static final int numberOfResizers = 3;
     private static final int numberOfClones = 2;
-    private static final int numberOfExecutions = 1;
     private static final int targetAmountOfData = 100;
 
     public static void main(String[] args) {
@@ -16,8 +15,7 @@ public class Main {
 
       TP1.Log.clearFile();
 
-
-    //    for (int j = 0; j < numberOfExecutions; j++) {
+     //   for (int j = 0; j < numberOfExecutions; j++) {
             InitContainer initContainer = new InitContainer(targetAmountOfData);
             FinalContainer finalContainer = new FinalContainer(targetAmountOfData);
 
@@ -31,7 +29,7 @@ public class Main {
             Thread[] resizerThreads = new Thread[numberOfResizers];
             Thread[] clonersThreads = new Thread[numberOfClones];
 
-            TP1.Log log = new TP1.Log(initContainer, finalContainer, loaders, improvers, resizers, cloners , loadersThreads, improversThreads, resizerThreads, clonersThreads);
+            TP1.Log log = new TP1.Log(targetAmountOfData,initContainer, finalContainer, loaders, improvers, resizers, cloners , loadersThreads, improversThreads, resizerThreads, clonersThreads);
 
         for (int i = 0; i < numberOfLoaders; i++) {
             loaders[i] = new Loader(initContainer, "TP1.Loader " + i);

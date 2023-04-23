@@ -6,7 +6,7 @@ public class Loader implements Runnable {
     private int imageLoad;
 
     private final InitContainer initContainer;
-    private static final Object LLAVE = new Object();
+
     private final String name;
 
     public Loader(InitContainer initContainer, String name) {
@@ -21,27 +21,18 @@ public class Loader implements Runnable {
         while (initContainer.isNotLoadCompleted()) {
             try {
                if(!initContainer.load(new Image(),this,imageLoad))
-                {    System.out.println("ENTREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEESADASDASDSASDASDASSAD" );
+                {
                     increaseImageLoad();
-                    TimeUnit.MILLISECONDS.sleep(15);
+                    TimeUnit.MILLISECONDS.sleep(50);
                 }
-               else
-               {
-                   System.out.println("ESTA LLENOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
-               }
 
-            } catch (InterruptedException e) {
-                e.printStackTrace();}
-         //   } catch (FullContainerException e) {
-         //       throw new RuntimeException(e);
-         //   }
+            } catch (Exception e) {
+                e.printStackTrace();
+            break;}
         }
 
     }
 
-    public InitContainer getInitContainer() {
-        return initContainer;
-    }
 
     public void setImageLoad(int imageLoad) {
         this.imageLoad = imageLoad;
@@ -56,9 +47,7 @@ public class Loader implements Runnable {
     }
 
     public void increaseImageLoad(){
-        synchronized (LLAVE){
             imageLoad++;
-        }
     }
 
 }

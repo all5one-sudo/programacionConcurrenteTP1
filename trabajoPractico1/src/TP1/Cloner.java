@@ -9,7 +9,6 @@ public class Cloner implements Runnable {
 
     private final FinalContainer finalContainer;
 
-    private static final Object LLAVE = new Object();
 
     private final  String name;
 
@@ -22,7 +21,6 @@ public class Cloner implements Runnable {
         this.initContainer = initContainer;
         this.finalContainer = finalContainer;
         this.name = name;
-    //  lastImageClone= initContainer.container.get(new Random().nextInt(initContainer.container.size()));
         lastImageClone=null;
         imageCloned =0;
 
@@ -30,7 +28,7 @@ public class Cloner implements Runnable {
 
     @Override
     public void run() {
-        while(initContainer.getSize() > 0 || initContainer.isNotLoadCompleted()) {  //ver idea de esteban
+        while(initContainer.getSize() > 0 || initContainer.isNotLoadCompleted()) {
             try {
                   lastImageClone = initContainer.getImage(lastImageClone);
 
@@ -42,63 +40,40 @@ public class Cloner implements Runnable {
                         {
                             if(lastImageClone.tryCloneToFinalContainer()){
                             if(finalContainer.Clone(initContainer.CopyAndDeleted( lastImageClone),this,imageCloned)) {
-                                System.out.println("Bandera"+ lastImageClone.getId()+ this.getName());
-
                                 increaseImageClone();
-                                TimeUnit.MILLISECONDS.sleep(10);
+                                TimeUnit.MILLISECONDS.sleep(50);
                             }
-                            else{
-                                break;
-                            }
+
                         }
                         }
-
-
 }
                     }
                 }
             catch (InterruptedException e) {
                 e.printStackTrace();
+                break;
 
+            }catch (NullPointerException | IndexOutOfBoundsException e){
+                e.printStackTrace();
             }
         }
     }
 
-    public InitContainer getInitContainer() {
-        return initContainer;
-    }
 
-    public FinalContainer getFinalContainer() {
-        return finalContainer;
-    }
 
     public String getName() {
         return name;
     }
 
-    public Image getLastImageClone() {
-        return lastImageClone;
-    }
-
-    public void setLastImageClone(Image lastImageClone) {
-        this.lastImageClone = lastImageClone;
-    }
 
     public int getImageCloned() {
         return imageCloned;
     }
 
-    public void setImageCloned(int imageCloned) {
-        this.imageCloned = imageCloned;
+    public void increaseImageClone() {
+        imageCloned++;
     }
-    public void increaseImageClone(){
 
-       synchronized (LLAVE){
-           imageCloned++;
-
-       }
-
-    }
 }
 
 
