@@ -49,7 +49,7 @@ public class Cloner implements Runnable {
                 e.printStackTrace();
                 break;
 
-            } catch (NullPointerException | IndexOutOfBoundsException e) {
+            } catch (NullPointerException | IndexOutOfBoundsException | IllegalArgumentException e) {
                 e.printStackTrace();
             }
         }

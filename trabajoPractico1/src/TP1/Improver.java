@@ -40,11 +40,9 @@ public class Improver implements Runnable {
                         }
 
                     }
-                    TimeUnit.MILLISECONDS.sleep(50);
+                    TimeUnit.MILLISECONDS.sleep(50); //puto
                 }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (NullPointerException e) {
+            } catch (InterruptedException | NullPointerException e) {
                 e.printStackTrace();
             }
         }

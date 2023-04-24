@@ -45,8 +45,11 @@ public class Resizer implements Runnable {
             } catch (NullPointerException e) {
                 e.printStackTrace();
                 System.out.println("SE BORRO DATO DEL CONTAINER, INTENTO DE NUEVO");
-            } catch (InterruptedException | IndexOutOfBoundsException | IllegalArgumentException e) {
+            } catch (InterruptedException | IndexOutOfBoundsException e) {
                 e.printStackTrace();
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+                break;
             }
         }
     }

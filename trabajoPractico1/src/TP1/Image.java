@@ -82,6 +82,7 @@ public class Image {
     }
 
     public boolean improve(Improver improver) {
+        System.out.println("El hilo improver "+ Thread.currentThread().getName() + "quiere hacer el improve");
         lock.lock();
         try {
             improvements.add(improver);

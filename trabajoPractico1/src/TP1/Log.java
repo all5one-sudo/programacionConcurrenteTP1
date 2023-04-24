@@ -35,7 +35,7 @@ public class Log extends Thread {
 
     public static void clearFile() {
         try {
-            PrintWriter pw_log = new PrintWriter(".\\Estadistica.txt");
+            PrintWriter pw_log = new PrintWriter(".//Estadistica.txt");
             pw_log.print("");
             pw_log.close();
         } catch (IOException e) {
@@ -82,7 +82,7 @@ public class Log extends Thread {
 
     private void writeLog() {
         try {
-            PrintWriter pw_log = new PrintWriter(new FileWriter(".\\Estadistica.txt", true));
+            PrintWriter pw_log = new PrintWriter(new FileWriter(".//Estadistica.txt", true));
             pw_log.print("*-------------------------------------------------------------------------------*\n");
             pw_log.printf("Execution time: %.3f [Seg]\n", (float) (new Date().getTime() - initTime.getTime()) / 1000);
             pw_log.printf("InitContainer size at this moment: %d\n", initContainer.getSize());
