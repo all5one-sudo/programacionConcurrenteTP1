@@ -35,9 +35,8 @@ public class Resizer implements Runnable {
                     if (lastImageResized.getAmIImproved()) {
 
                         if (lastImageResized.resize()) {
-                            // System.out.println("Imagen resizeada: " + lastImageResized.getId() + " por
-                            // hilo: "
-                            // + Thread.currentThread().getName());
+                            System.out.println("Image: " + lastImageResized.getId() + "resized by: "
+                            + Thread.currentThread().getName());
                             increaseImageResizer();
                             TimeUnit.MILLISECONDS.sleep(100);
                         }
@@ -45,7 +44,7 @@ public class Resizer implements Runnable {
                 }
             } catch (NullPointerException e) {
                 e.printStackTrace();
-                // System.out.println("SE BORRO DATO DEL CONTAINER, INTENTO DE NUEVO");
+                System.out.println("Container data deleted, trying again...");
             } catch (InterruptedException | IndexOutOfBoundsException e) {
                 e.printStackTrace();
             } catch (IllegalArgumentException e) {

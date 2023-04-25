@@ -12,8 +12,6 @@ public class Image {
     private boolean resized;
     private boolean clonedToFinalContainer;
 
-    // Defino las llaves
-
     private static final Object keyImprove = new Object();
     private static final Object keyResize = new Object();
     private static final Object keyClone = new Object();
@@ -66,7 +64,7 @@ public class Image {
     }
 
     public Image(List<Improver> improvements, boolean resized, int id, boolean clonedToFinalContainer,
-            boolean iamImproved) { // es solamente para el Clone
+            boolean iamImproved) {
         this.improvements = improvements;
         this.resized = resized;
         this.id = id;

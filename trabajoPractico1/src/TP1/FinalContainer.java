@@ -15,8 +15,7 @@ public class FinalContainer extends Container {
 
     public synchronized boolean Clone(Image image, Cloner cloner, int cantidad) throws InterruptedException {
         try {
-            if (!cloneCompleted && image != null && image.isResized()) { // agregamos esto pq el return null de
-                                                                         // DopyandDelete nos perjudicaba
+            if (!cloneCompleted && image != null && image.isResized()) {
                 this.container.addLast(image);
                 amountOfImages++;
                 System.out.printf("[FinalContainer (Size: %d)] %s Image cloned <ID: %d \n",

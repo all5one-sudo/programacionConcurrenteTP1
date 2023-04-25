@@ -4,10 +4,9 @@ import java.util.Random;
 
 public class InitContainer extends Container {
     private boolean loadCompleted;
-    private int targetAmountOfImages; // cantidad Max de imagenes a crear
-    private int amountOfImages; // cantidad de imagenes actual
+    private int targetAmountOfImages;
+    private int amountOfImages;
 
-    // llaves
     private static final Object keyLoad = new Object();
     private static final Object keyCloneDelete = new Object();
 
