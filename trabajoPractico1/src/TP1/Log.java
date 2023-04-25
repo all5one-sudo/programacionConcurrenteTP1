@@ -163,7 +163,7 @@ public class Log extends Thread {
             for (Cloner cloner : clonersCopy) {
                 pw_log.printf("         %s:\n", cloner.getName());
                 pw_log.printf("            cloned images: %d\n", cloner.getImageCloned());
-                pw_log.printf("            responsibility percentage in taken data over target data: %.2f %%\n\n",
+                pw_log.printf("            responsibility percentage in taken data over target data: %.2f %%\n",
                         100 * (float) cloner.getImageCloned() / totalImageLoad);
             }
             pw_log.println("");

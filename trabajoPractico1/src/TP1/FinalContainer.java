@@ -13,14 +13,14 @@ public class FinalContainer extends Container {
 
     }
 
-    public boolean Clone(Image image, Cloner cloner, int cantidad) throws InterruptedException {
-        lock.lock();
+    public synchronized boolean Clone(Image image, Cloner cloner, int cantidad) throws InterruptedException {
         try {
             if (!cloneCompleted && image != null && image.isResized()) { // agregamos esto pq el return null de
                                                                          // DopyandDelete nos perjudicaba
                 this.container.addLast(image);
                 amountOfImages++;
-                System.out.printf("[FinalContainer (Size: %d)] %s Image cloned <ID: %d \n", this.container.size(),
+                System.out.printf("[FinalContainer (Size: %d)] %s Image cloned <ID: %d \n",
+                        this.container.size(),
                         Thread.currentThread().getName(), image.getId());
                 if (amountOfImages == targetAmountOfImages) {
                     cloneCompleted = true;
@@ -30,8 +30,6 @@ public class FinalContainer extends Container {
             }
         } catch (NullPointerException e) {
             System.out.println("Imagen a clonar nula");
-        } finally {
-            lock.unlock();
         }
         return !cloneCompleted;
     }

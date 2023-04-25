@@ -9,10 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
         long start = System.currentTimeMillis();
+        Log.clearFile();
 
-        TP1.Log.clearFile();
-
-        // for (int j = 0; j < numberOfExecutions; j++) {
         InitContainer initContainer = new InitContainer(targetAmountOfData);
         FinalContainer finalContainer = new FinalContainer(targetAmountOfData);
 
@@ -83,14 +81,9 @@ public class Main {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         log.interrupt();
-
         long finish = System.currentTimeMillis();
         long timeElapsed = finish - start;
-        System.out.println("Tiempo de ejecucion: " + (float) (timeElapsed / 1000.00) + " segundos");
-
+        System.out.println("Elapsed Time: " + (float) (timeElapsed / 1000.00) + " seconds");
     }
-
-    // }
 }

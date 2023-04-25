@@ -30,7 +30,6 @@ public class Loader implements Runnable {
                 break;
             }
         }
-
     }
 
     public void setImageLoad(int imageLoad) {

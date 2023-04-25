@@ -1,6 +1,5 @@
 package TP1;
 
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Cloner implements Runnable {
@@ -45,11 +44,11 @@ public class Cloner implements Runnable {
                         }
                     }
                 }
-            } catch (InterruptedException e) {
+            } catch (InterruptedException | IllegalArgumentException e) {
                 e.printStackTrace();
                 break;
 
-            } catch (NullPointerException | IndexOutOfBoundsException | IllegalArgumentException e) {
+            } catch (NullPointerException | IndexOutOfBoundsException e) {
                 e.printStackTrace();
             }
         }

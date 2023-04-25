@@ -7,6 +7,10 @@ public class InitContainer extends Container {
     private int targetAmountOfImages; // cantidad Max de imagenes a crear
     private int amountOfImages; // cantidad de imagenes actual
 
+    // llaves
+    private static final Object keyLoad = new Object();
+    private static final Object keyCloneDelete = new Object();
+
     public InitContainer(int targetAmountOfImages) {
         loadCompleted = false;
         this.targetAmountOfImages = targetAmountOfImages;
@@ -14,26 +18,22 @@ public class InitContainer extends Container {
     }
 
     public boolean load(Image image, Loader loader, int cantidad) throws Exception {
-        lock.lock();
-        try {
+        synchronized (keyLoad) {
             if (!loadCompleted) {
                 container.addLast(image);
                 amountOfImages++;
-                System.out.println("imagen cargada: " + image.getId());
+                System.out.println("Loaded image: " + image.getId());
                 if (amountOfImages == targetAmountOfImages) {
                     loadCompleted = true;
                     loader.setImageLoad(cantidad + 1);
-                    throw new Exception("contenedor lleno");
+                    throw new Exception("Contenedor lleno");
                 }
             }
-
-        } finally {
-            lock.unlock();
+            return loadCompleted;
         }
-        return loadCompleted;
     }
 
-    public Image getImage(Image last) throws InterruptedException {
+    public Image getImage(Image last) {
         if (container.size() > 0) {
             int aux = new Random().nextInt(container.size());
             return container.get(aux);
@@ -47,19 +47,16 @@ public class InitContainer extends Container {
     }
 
     public Image CopyAndDeleted(Image image) throws InterruptedException {
-        lock.lock();
-        try {
+        synchronized (keyCloneDelete) {
             if (container.size() > 0 && image.isIamDeletefromInitContainer()) {
                 Image forClone = new Image(image.getImprovements(), image.getAmIResized(), image.getId(), true,
                         image.getAmIImproved());
                 this.container.remove(image);
-                System.out.printf("Imagen copiada y borrada del contenedor inicial: " + forClone.getId());
+                //System.out.printf("Imagen copiada y borrada del contenedor inicial: " + forClone.getId());
                 return forClone;
             } else {
                 return null;
             }
-        } finally {
-            lock.unlock();
         }
     }
 

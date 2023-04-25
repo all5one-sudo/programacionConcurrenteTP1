@@ -32,17 +32,15 @@ public class Improver implements Runnable {
                 lastImageImprove = initContainer.getImage(lastImageImprove);
                 if (lastImageImprove != null) {
                     if (!lastImageImprove.isImproved(this)) {
+                        System.out.println("Improved image: " + lastImageImprove.getId() + ", thread: "
+                                + Thread.currentThread().getName());
                         increaseImageImprover();
-                        if (lastImageImprove.improve(this)) {
-                            System.out.println("Imagen improved: " + lastImageImprove.getId() + " por hilo: "
-                                    + Thread.currentThread().getName());
-                            totalImagesImprovedByThread++;
-                        }
-
+                        lastImageImprove.improve(this);
+                        TimeUnit.MILLISECONDS.sleep(100);
+                        totalImagesImprovedByThread++;
                     }
-                    TimeUnit.MILLISECONDS.sleep(50); //puto
                 }
-            } catch (InterruptedException | NullPointerException e) {
+            } catch (NullPointerException | InterruptedException e) {
                 e.printStackTrace();
             }
         }

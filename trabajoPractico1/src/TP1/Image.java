@@ -1,19 +1,22 @@
 package TP1;
 
 import java.util.ArrayList;
-import java.util.concurrent.locks.Lock;
 import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class Image {
 
-    private final Lock lock;
     private final List<Improver> improvements;
     private final int id;
     private static int generator = 0;
     private static final Object key = new Object();
     private boolean resized;
     private boolean clonedToFinalContainer;
+
+    // Defino las llaves
+
+    private static final Object keyImprove = new Object();
+    private static final Object keyResize = new Object();
+    private static final Object keyClone = new Object();
 
     private boolean IamDeletefromInitContainer;
 
@@ -29,14 +32,9 @@ public class Image {
         improvements = new ArrayList<>();
         resized = false;
         id = newId();
-        lock = new ReentrantLock(false); // no hay fairness, no es necesario que tenga false
         clonedToFinalContainer = false;
         iamImproved = false;
         IamDeletefromInitContainer = false;
-    }
-
-    public Lock getLock() {
-        return lock;
     }
 
     public List<Improver> getImprovements() {
@@ -72,7 +70,6 @@ public class Image {
         this.improvements = improvements;
         this.resized = resized;
         this.id = id;
-        lock = new ReentrantLock(false); // no hay fairness ; no es necesario que tenga false
         this.clonedToFinalContainer = clonedToFinalContainer;
         this.iamImproved = iamImproved;
     }
@@ -82,20 +79,15 @@ public class Image {
     }
 
     public boolean improve(Improver improver) {
-        System.out.println("El hilo improver "+ Thread.currentThread().getName() + "quiere hacer el improve");
-        lock.lock();
-        try {
-            improvements.add(improver);
 
+        synchronized (keyImprove) {
+            improvements.add(improver);
             if (improvements.size() == improver.getTotalThreadsImprovements()) {
                 this.setIamImprove();
                 return true;
             } else {
                 return false;
             }
-
-        } finally {
-            lock.unlock();
         }
     }
 
@@ -104,17 +96,13 @@ public class Image {
     }
 
     public boolean resize() {
-        lock.lock();
-        try {
+        synchronized (keyResize) {
             if (!isResized()) {
                 resized = true;
-
                 return true;
             } else {
                 return false;
             }
-        } finally {
-            lock.unlock();
         }
     }
 
@@ -124,30 +112,21 @@ public class Image {
 
     public void setIamImprove() {
         iamImproved = true;
-
     }
 
     public boolean isResized() {
-
         return resized;
-
     }
 
     public boolean tryCloneToFinalContainer() {
-        lock.lock();
-        try {
+        synchronized (keyClone) {
             if (!IamDeletefromInitContainer) {
                 IamDeletefromInitContainer = true;
-
                 return true;
             } else {
                 return false;
             }
-
-        } finally {
-            lock.unlock();
         }
-
     }
 
     public boolean getAmIImproved() {
