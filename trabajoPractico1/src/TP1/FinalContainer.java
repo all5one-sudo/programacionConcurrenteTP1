@@ -1,19 +1,23 @@
 package TP1;
 
+// Clase contenedor final
 public class FinalContainer extends Container {
 
-    private boolean cloneCompleted;
-    private int targetAmountOfImages; // cantidad Max de imagenes a trabajar
-    private int amountOfImages; // cantidad de imagenes actual
+    private boolean cloneCompleted; // Boolean que representa la compleción de la carga
 
+    private final int targetAmountOfImages; // Cantidad objetivo de imágenes para guardar en el contenedor
+
+    private int amountOfImages; // Cantidad de imágenes
+
+    // Constructor
     public FinalContainer(int targetAmountOfImages) {
         this.amountOfImages = 0;
         this.targetAmountOfImages = targetAmountOfImages;
         cloneCompleted = false;
-
     }
 
-    public synchronized boolean Clone(Image image, Cloner cloner, int cantidad) throws InterruptedException {
+    // Método que clona las imágenes del contenedor inicial al final
+    public synchronized boolean Clone(Image image, Cloner cloner) throws FullContainerException {
         try {
             if (!cloneCompleted && image != null && image.isResized()) {
                 this.container.addLast(image);
@@ -24,11 +28,13 @@ public class FinalContainer extends Container {
                 if (amountOfImages == targetAmountOfImages) {
                     cloneCompleted = true;
                     cloner.increaseImageClone();
-                    throw new InterruptedException("Contenedor final lleno");
+                }
+                else if (amountOfImages > targetAmountOfImages) {
+                    throw new FullContainerException("Contenedor Excedido");
                 }
             }
-        } catch (NullPointerException e) {
-            System.out.println("Imagen a clonar nula");
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return !cloneCompleted;
     }

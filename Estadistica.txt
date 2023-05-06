@@ -1,27 +1,27 @@
 *-------------------------------------------------------------------------------*
-Execution time: 0.012 [Seg]
-InitContainer size at this moment: 3
-InitContainer size: 4
+Execution time: 0.002 [Seg]
+InitContainer size at this moment: 2
+InitContainer size: 3
 finalContainer size: 1
 *-------------------------------------------------------------------------------*
 
    Total loaders:
 
-      Loaded images: 4
+      Loaded images: 2
 
       Loaders: 
          TP1.Loader 0:
-            loaded images: 2
+            loaded images: 1
          TP1.Loader 1:
-            loaded images: 2
+            loaded images: 1
 
    Total Improvers:
 
-      Improved images: 1
+      Improved images: 0
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 1
+            improved images: 0
          TP1.Improver 1:
             improved images: 0
          TP1.Improver 2:
@@ -33,11 +33,11 @@ finalContainer size: 1
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 1
-            responsibility percentage in copied data over target data: 25.00 %
-         TP1.Resizer 1:
             resized images: 0
             responsibility percentage in copied data over target data: 0.00 %
+         TP1.Resizer 1:
+            resized images: 1
+            responsibility percentage in copied data over target data: 50.00 %
          TP1.Resizer 2:
             resized images: 0
             responsibility percentage in copied data over target data: 0.00 %
@@ -48,37 +48,35 @@ finalContainer size: 1
 
       Cloners: 
          TP1.Cloner 0:
+            cloned images: 1
+            responsibility percentage in taken data over target data: 50.00 %
+         TP1.Cloner 1:
             cloned images: 0
             responsibility percentage in taken data over target data: 0.00 %
 
-         TP1.Cloner 1:
-            cloned images: 1
-            responsibility percentage in taken data over target data: 25.00 %
-
-
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TIMED_WAITING
-      TP1.Loader 1 (Thread ID: 13): TIMED_WAITING
+      TP1.Loader 0 (Thread ID: 15): TIMED_WAITING
+      TP1.Loader 1 (Thread ID: 16): TIMED_WAITING
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): TIMED_WAITING
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): RUNNABLE
+      TP1.Resizer 1 (Thread ID: 21): TIMED_WAITING
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): TIMED_WAITING
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): TIMED_WAITING
+      TP1.Cloner 1 (Thread ID: 24): RUNNABLE
 
 *-------------------------------------------------------------------------------*
-Execution time: 0.642 [Seg]
-InitContainer size at this moment: 16
+
+*-------------------------------------------------------------------------------*
+Execution time: 0.556 [Seg]
+InitContainer size at this moment: 19
 InitContainer size: 22
-finalContainer size: 6
+finalContainer size: 3
 *-------------------------------------------------------------------------------*
 
    Total loaders:
@@ -93,144 +91,140 @@ finalContainer size: 6
 
    Total Improvers:
 
-      Improved images: 6
+      Improved images: 15
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 2
+            improved images: 5
          TP1.Improver 1:
-            improved images: 3
+            improved images: 5
          TP1.Improver 2:
-            improved images: 1
+            improved images: 5
 
    Total Resizers:
 
-      Resized images: 6
+      Resized images: 3
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 2
-            responsibility percentage in copied data over target data: 9.09 %
+            resized images: 0
+            responsibility percentage in copied data over target data: 0.00 %
          TP1.Resizer 1:
-            resized images: 2
-            responsibility percentage in copied data over target data: 9.09 %
+            resized images: 1
+            responsibility percentage in copied data over target data: 4.55 %
          TP1.Resizer 2:
             resized images: 2
             responsibility percentage in copied data over target data: 9.09 %
 
    Total Cloners:
 
-      Cloned images: 6
+      Cloned images: 3
 
       Cloners: 
          TP1.Cloner 0:
-            cloned images: 4
-            responsibility percentage in taken data over target data: 18.18 %
-
+            cloned images: 3
+            responsibility percentage in taken data over target data: 13.64 %
          TP1.Cloner 1:
-            cloned images: 2
-            responsibility percentage in taken data over target data: 9.09 %
-
+            cloned images: 0
+            responsibility percentage in taken data over target data: 0.00 %
 
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TIMED_WAITING
-      TP1.Loader 1 (Thread ID: 13): TIMED_WAITING
+      TP1.Loader 0 (Thread ID: 15): TIMED_WAITING
+      TP1.Loader 1 (Thread ID: 16): TIMED_WAITING
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): TIMED_WAITING
-      TP1.Resizer 2 (Thread ID: 19): TIMED_WAITING
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): TIMED_WAITING
 
-      TP1.Cloner 0 (Thread ID: 20): TIMED_WAITING
-      TP1.Cloner 1 (Thread ID: 21): TIMED_WAITING
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): TIMED_WAITING
+      TP1.Cloner 1 (Thread ID: 24): RUNNABLE
 
 *-------------------------------------------------------------------------------*
-Execution time: 1.153 [Seg]
-InitContainer size at this moment: 34
-InitContainer size: 42
-finalContainer size: 8
+
+*-------------------------------------------------------------------------------*
+Execution time: 1.057 [Seg]
+InitContainer size at this moment: 36
+InitContainer size: 40
+finalContainer size: 4
 *-------------------------------------------------------------------------------*
 
    Total loaders:
 
-      Loaded images: 42
+      Loaded images: 40
 
       Loaders: 
          TP1.Loader 0:
-            loaded images: 21
+            loaded images: 20
          TP1.Loader 1:
-            loaded images: 21
+            loaded images: 20
 
    Total Improvers:
 
-      Improved images: 8
+      Improved images: 30
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 3
+            improved images: 10
          TP1.Improver 1:
-            improved images: 4
+            improved images: 10
          TP1.Improver 2:
-            improved images: 1
+            improved images: 10
 
    Total Resizers:
 
-      Resized images: 8
+      Resized images: 4
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 2
-            responsibility percentage in copied data over target data: 4.76 %
+            resized images: 1
+            responsibility percentage in copied data over target data: 2.50 %
          TP1.Resizer 1:
-            resized images: 3
-            responsibility percentage in copied data over target data: 7.14 %
+            resized images: 1
+            responsibility percentage in copied data over target data: 2.50 %
          TP1.Resizer 2:
-            resized images: 3
-            responsibility percentage in copied data over target data: 7.14 %
+            resized images: 2
+            responsibility percentage in copied data over target data: 5.00 %
 
    Total Cloners:
 
-      Cloned images: 8
+      Cloned images: 4
 
       Cloners: 
          TP1.Cloner 0:
             cloned images: 4
-            responsibility percentage in taken data over target data: 9.52 %
-
+            responsibility percentage in taken data over target data: 10.00 %
          TP1.Cloner 1:
-            cloned images: 4
-            responsibility percentage in taken data over target data: 9.52 %
-
+            cloned images: 0
+            responsibility percentage in taken data over target data: 0.00 %
 
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TIMED_WAITING
-      TP1.Loader 1 (Thread ID: 13): TIMED_WAITING
+      TP1.Loader 0 (Thread ID: 15): TIMED_WAITING
+      TP1.Loader 1 (Thread ID: 16): TIMED_WAITING
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): TIMED_WAITING
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): TIMED_WAITING
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
 
 *-------------------------------------------------------------------------------*
-Execution time: 1.663 [Seg]
-InitContainer size at this moment: 48
+
+*-------------------------------------------------------------------------------*
+Execution time: 1.559 [Seg]
+InitContainer size at this moment: 53
 InitContainer size: 60
-finalContainer size: 11
+finalContainer size: 7
 *-------------------------------------------------------------------------------*
 
    Total loaders:
@@ -245,144 +239,140 @@ finalContainer size: 11
 
    Total Improvers:
 
-      Improved images: 12
+      Improved images: 42
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 3
+            improved images: 14
          TP1.Improver 1:
-            improved images: 6
+            improved images: 14
          TP1.Improver 2:
-            improved images: 3
+            improved images: 14
 
    Total Resizers:
 
-      Resized images: 12
+      Resized images: 7
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 4
-            responsibility percentage in copied data over target data: 6.67 %
+            resized images: 1
+            responsibility percentage in copied data over target data: 1.67 %
          TP1.Resizer 1:
             resized images: 3
             responsibility percentage in copied data over target data: 5.00 %
          TP1.Resizer 2:
-            resized images: 5
-            responsibility percentage in copied data over target data: 8.33 %
+            resized images: 3
+            responsibility percentage in copied data over target data: 5.00 %
 
    Total Cloners:
 
-      Cloned images: 12
+      Cloned images: 7
 
       Cloners: 
          TP1.Cloner 0:
-            cloned images: 6
-            responsibility percentage in taken data over target data: 10.00 %
-
+            cloned images: 5
+            responsibility percentage in taken data over target data: 8.33 %
          TP1.Cloner 1:
-            cloned images: 6
-            responsibility percentage in taken data over target data: 10.00 %
-
+            cloned images: 2
+            responsibility percentage in taken data over target data: 3.33 %
 
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TIMED_WAITING
-      TP1.Loader 1 (Thread ID: 13): TIMED_WAITING
+      TP1.Loader 0 (Thread ID: 15): TIMED_WAITING
+      TP1.Loader 1 (Thread ID: 16): TIMED_WAITING
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): TIMED_WAITING
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): RUNNABLE
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): TIMED_WAITING
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
 
 *-------------------------------------------------------------------------------*
-Execution time: 2.178 [Seg]
-InitContainer size at this moment: 67
-InitContainer size: 80
-finalContainer size: 13
+
+*-------------------------------------------------------------------------------*
+Execution time: 2.061 [Seg]
+InitContainer size at this moment: 71
+InitContainer size: 78
+finalContainer size: 7
 *-------------------------------------------------------------------------------*
 
    Total loaders:
 
-      Loaded images: 80
+      Loaded images: 78
 
       Loaders: 
          TP1.Loader 0:
-            loaded images: 40
+            loaded images: 39
          TP1.Loader 1:
-            loaded images: 40
+            loaded images: 39
 
    Total Improvers:
 
-      Improved images: 13
+      Improved images: 57
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 3
+            improved images: 19
          TP1.Improver 1:
-            improved images: 6
+            improved images: 19
          TP1.Improver 2:
-            improved images: 4
+            improved images: 19
 
    Total Resizers:
 
-      Resized images: 13
+      Resized images: 7
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 4
-            responsibility percentage in copied data over target data: 5.00 %
+            resized images: 1
+            responsibility percentage in copied data over target data: 1.28 %
          TP1.Resizer 1:
-            resized images: 4
-            responsibility percentage in copied data over target data: 5.00 %
+            resized images: 3
+            responsibility percentage in copied data over target data: 3.85 %
          TP1.Resizer 2:
-            resized images: 5
-            responsibility percentage in copied data over target data: 6.25 %
+            resized images: 3
+            responsibility percentage in copied data over target data: 3.85 %
 
    Total Cloners:
 
-      Cloned images: 13
+      Cloned images: 7
 
       Cloners: 
          TP1.Cloner 0:
-            cloned images: 6
-            responsibility percentage in taken data over target data: 7.50 %
-
+            cloned images: 5
+            responsibility percentage in taken data over target data: 6.41 %
          TP1.Cloner 1:
-            cloned images: 7
-            responsibility percentage in taken data over target data: 8.75 %
-
+            cloned images: 2
+            responsibility percentage in taken data over target data: 2.56 %
 
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TIMED_WAITING
-      TP1.Loader 1 (Thread ID: 13): TIMED_WAITING
+      TP1.Loader 0 (Thread ID: 15): TIMED_WAITING
+      TP1.Loader 1 (Thread ID: 16): TIMED_WAITING
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): RUNNABLE
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
 
 *-------------------------------------------------------------------------------*
-Execution time: 2.691 [Seg]
-InitContainer size at this moment: 83
+
+*-------------------------------------------------------------------------------*
+Execution time: 2.567 [Seg]
+InitContainer size at this moment: 90
 InitContainer size: 98
-finalContainer size: 15
+finalContainer size: 8
 *-------------------------------------------------------------------------------*
 
    Total loaders:
@@ -397,15 +387,385 @@ finalContainer size: 15
 
    Total Improvers:
 
-      Improved images: 15
+      Improved images: 72
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 3
+            improved images: 24
          TP1.Improver 1:
-            improved images: 6
+            improved images: 24
          TP1.Improver 2:
-            improved images: 6
+            improved images: 24
+
+   Total Resizers:
+
+      Resized images: 8
+
+      Resizers: 
+         TP1.Resizer 0:
+            resized images: 1
+            responsibility percentage in copied data over target data: 1.02 %
+         TP1.Resizer 1:
+            resized images: 3
+            responsibility percentage in copied data over target data: 3.06 %
+         TP1.Resizer 2:
+            resized images: 4
+            responsibility percentage in copied data over target data: 4.08 %
+
+   Total Cloners:
+
+      Cloned images: 8
+
+      Cloners: 
+         TP1.Cloner 0:
+            cloned images: 5
+            responsibility percentage in taken data over target data: 5.10 %
+         TP1.Cloner 1:
+            cloned images: 3
+            responsibility percentage in taken data over target data: 3.06 %
+
+   Threads State:
+
+      TP1.Loader 0 (Thread ID: 15): TIMED_WAITING
+      TP1.Loader 1 (Thread ID: 16): TIMED_WAITING
+
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
+
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
+
+      TP1.Cloner 0 (Thread ID: 23): RUNNABLE
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
+
+*-------------------------------------------------------------------------------*
+
+*-------------------------------------------------------------------------------*
+Execution time: 3.073 [Seg]
+InitContainer size at this moment: 91
+InitContainer size: 100
+finalContainer size: 9
+*-------------------------------------------------------------------------------*
+
+   Total loaders:
+
+      Loaded images: 100
+
+      Loaders: 
+         TP1.Loader 0:
+            loaded images: 50
+         TP1.Loader 1:
+            loaded images: 50
+
+   Total Improvers:
+
+      Improved images: 87
+
+      Improvers: 
+         TP1.Improver 0:
+            improved images: 29
+         TP1.Improver 1:
+            improved images: 29
+         TP1.Improver 2:
+            improved images: 29
+
+   Total Resizers:
+
+      Resized images: 9
+
+      Resizers: 
+         TP1.Resizer 0:
+            resized images: 1
+            responsibility percentage in copied data over target data: 1.00 %
+         TP1.Resizer 1:
+            resized images: 3
+            responsibility percentage in copied data over target data: 3.00 %
+         TP1.Resizer 2:
+            resized images: 5
+            responsibility percentage in copied data over target data: 5.00 %
+
+   Total Cloners:
+
+      Cloned images: 9
+
+      Cloners: 
+         TP1.Cloner 0:
+            cloned images: 5
+            responsibility percentage in taken data over target data: 5.00 %
+         TP1.Cloner 1:
+            cloned images: 4
+            responsibility percentage in taken data over target data: 4.00 %
+
+   Threads State:
+
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
+
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
+
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
+
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
+
+*-------------------------------------------------------------------------------*
+
+*-------------------------------------------------------------------------------*
+Execution time: 3.578 [Seg]
+InitContainer size at this moment: 91
+InitContainer size: 100
+finalContainer size: 9
+*-------------------------------------------------------------------------------*
+
+   Total loaders:
+
+      Loaded images: 100
+
+      Loaders: 
+         TP1.Loader 0:
+            loaded images: 50
+         TP1.Loader 1:
+            loaded images: 50
+
+   Total Improvers:
+
+      Improved images: 102
+
+      Improvers: 
+         TP1.Improver 0:
+            improved images: 34
+         TP1.Improver 1:
+            improved images: 34
+         TP1.Improver 2:
+            improved images: 34
+
+   Total Resizers:
+
+      Resized images: 9
+
+      Resizers: 
+         TP1.Resizer 0:
+            resized images: 1
+            responsibility percentage in copied data over target data: 1.00 %
+         TP1.Resizer 1:
+            resized images: 3
+            responsibility percentage in copied data over target data: 3.00 %
+         TP1.Resizer 2:
+            resized images: 5
+            responsibility percentage in copied data over target data: 5.00 %
+
+   Total Cloners:
+
+      Cloned images: 9
+
+      Cloners: 
+         TP1.Cloner 0:
+            cloned images: 5
+            responsibility percentage in taken data over target data: 5.00 %
+         TP1.Cloner 1:
+            cloned images: 4
+            responsibility percentage in taken data over target data: 4.00 %
+
+   Threads State:
+
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
+
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
+
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): RUNNABLE
+
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
+
+*-------------------------------------------------------------------------------*
+
+*-------------------------------------------------------------------------------*
+Execution time: 4.084 [Seg]
+InitContainer size at this moment: 90
+InitContainer size: 100
+finalContainer size: 10
+*-------------------------------------------------------------------------------*
+
+   Total loaders:
+
+      Loaded images: 100
+
+      Loaders: 
+         TP1.Loader 0:
+            loaded images: 50
+         TP1.Loader 1:
+            loaded images: 50
+
+   Total Improvers:
+
+      Improved images: 117
+
+      Improvers: 
+         TP1.Improver 0:
+            improved images: 39
+         TP1.Improver 1:
+            improved images: 39
+         TP1.Improver 2:
+            improved images: 39
+
+   Total Resizers:
+
+      Resized images: 10
+
+      Resizers: 
+         TP1.Resizer 0:
+            resized images: 1
+            responsibility percentage in copied data over target data: 1.00 %
+         TP1.Resizer 1:
+            resized images: 4
+            responsibility percentage in copied data over target data: 4.00 %
+         TP1.Resizer 2:
+            resized images: 5
+            responsibility percentage in copied data over target data: 5.00 %
+
+   Total Cloners:
+
+      Cloned images: 10
+
+      Cloners: 
+         TP1.Cloner 0:
+            cloned images: 6
+            responsibility percentage in taken data over target data: 6.00 %
+         TP1.Cloner 1:
+            cloned images: 4
+            responsibility percentage in taken data over target data: 4.00 %
+
+   Threads State:
+
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
+
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
+
+      TP1.Resizer 0 (Thread ID: 20): RUNNABLE
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
+
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
+
+*-------------------------------------------------------------------------------*
+
+*-------------------------------------------------------------------------------*
+Execution time: 4.587 [Seg]
+InitContainer size at this moment: 87
+InitContainer size: 100
+finalContainer size: 13
+*-------------------------------------------------------------------------------*
+
+   Total loaders:
+
+      Loaded images: 100
+
+      Loaders: 
+         TP1.Loader 0:
+            loaded images: 50
+         TP1.Loader 1:
+            loaded images: 50
+
+   Total Improvers:
+
+      Improved images: 132
+
+      Improvers: 
+         TP1.Improver 0:
+            improved images: 44
+         TP1.Improver 1:
+            improved images: 44
+         TP1.Improver 2:
+            improved images: 44
+
+   Total Resizers:
+
+      Resized images: 13
+
+      Resizers: 
+         TP1.Resizer 0:
+            resized images: 1
+            responsibility percentage in copied data over target data: 1.00 %
+         TP1.Resizer 1:
+            resized images: 6
+            responsibility percentage in copied data over target data: 6.00 %
+         TP1.Resizer 2:
+            resized images: 6
+            responsibility percentage in copied data over target data: 6.00 %
+
+   Total Cloners:
+
+      Cloned images: 13
+
+      Cloners: 
+         TP1.Cloner 0:
+            cloned images: 8
+            responsibility percentage in taken data over target data: 8.00 %
+         TP1.Cloner 1:
+            cloned images: 5
+            responsibility percentage in taken data over target data: 5.00 %
+
+   Threads State:
+
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
+
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
+
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
+
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): RUNNABLE
+
+*-------------------------------------------------------------------------------*
+
+*-------------------------------------------------------------------------------*
+Execution time: 5.092 [Seg]
+InitContainer size at this moment: 85
+InitContainer size: 100
+finalContainer size: 15
+*-------------------------------------------------------------------------------*
+
+   Total loaders:
+
+      Loaded images: 100
+
+      Loaders: 
+         TP1.Loader 0:
+            loaded images: 50
+         TP1.Loader 1:
+            loaded images: 50
+
+   Total Improvers:
+
+      Improved images: 146
+
+      Improvers: 
+         TP1.Improver 0:
+            improved images: 49
+         TP1.Improver 1:
+            improved images: 49
+         TP1.Improver 2:
+            improved images: 48
 
    Total Resizers:
 
@@ -413,14 +773,14 @@ finalContainer size: 15
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 4
-            responsibility percentage in copied data over target data: 4.08 %
+            resized images: 2
+            responsibility percentage in copied data over target data: 2.00 %
          TP1.Resizer 1:
-            resized images: 4
-            responsibility percentage in copied data over target data: 4.08 %
+            resized images: 6
+            responsibility percentage in copied data over target data: 6.00 %
          TP1.Resizer 2:
             resized images: 7
-            responsibility percentage in copied data over target data: 7.14 %
+            responsibility percentage in copied data over target data: 7.00 %
 
    Total Cloners:
 
@@ -429,185 +789,31 @@ finalContainer size: 15
       Cloners: 
          TP1.Cloner 0:
             cloned images: 8
-            responsibility percentage in taken data over target data: 8.16 %
-
-         TP1.Cloner 1:
-            cloned images: 7
-            responsibility percentage in taken data over target data: 7.14 %
-
-
-   Threads State:
-
-      TP1.Loader 0 (Thread ID: 12): TIMED_WAITING
-      TP1.Loader 1 (Thread ID: 13): TIMED_WAITING
-
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
-
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
-
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
-
-*-------------------------------------------------------------------------------*
-
-*-------------------------------------------------------------------------------*
-Execution time: 3.199 [Seg]
-InitContainer size at this moment: 84
-InitContainer size: 100
-finalContainer size: 16
-*-------------------------------------------------------------------------------*
-
-   Total loaders:
-
-      Loaded images: 100
-
-      Loaders: 
-         TP1.Loader 0:
-            loaded images: 50
-         TP1.Loader 1:
-            loaded images: 50
-
-   Total Improvers:
-
-      Improved images: 16
-
-      Improvers: 
-         TP1.Improver 0:
-            improved images: 4
-         TP1.Improver 1:
-            improved images: 6
-         TP1.Improver 2:
-            improved images: 6
-
-   Total Resizers:
-
-      Resized images: 16
-
-      Resizers: 
-         TP1.Resizer 0:
-            resized images: 4
-            responsibility percentage in copied data over target data: 4.00 %
-         TP1.Resizer 1:
-            resized images: 4
-            responsibility percentage in copied data over target data: 4.00 %
-         TP1.Resizer 2:
-            resized images: 8
-            responsibility percentage in copied data over target data: 8.00 %
-
-   Total Cloners:
-
-      Cloned images: 16
-
-      Cloners: 
-         TP1.Cloner 0:
-            cloned images: 9
-            responsibility percentage in taken data over target data: 9.00 %
-
+            responsibility percentage in taken data over target data: 8.00 %
          TP1.Cloner 1:
             cloned images: 7
             responsibility percentage in taken data over target data: 7.00 %
 
-
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): RUNNABLE
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
-
-*-------------------------------------------------------------------------------*
-
-*-------------------------------------------------------------------------------*
-Execution time: 3.708 [Seg]
-InitContainer size at this moment: 82
-InitContainer size: 100
-finalContainer size: 18
-*-------------------------------------------------------------------------------*
-
-   Total loaders:
-
-      Loaded images: 100
-
-      Loaders: 
-         TP1.Loader 0:
-            loaded images: 50
-         TP1.Loader 1:
-            loaded images: 50
-
-   Total Improvers:
-
-      Improved images: 18
-
-      Improvers: 
-         TP1.Improver 0:
-            improved images: 5
-         TP1.Improver 1:
-            improved images: 7
-         TP1.Improver 2:
-            improved images: 6
-
-   Total Resizers:
-
-      Resized images: 18
-
-      Resizers: 
-         TP1.Resizer 0:
-            resized images: 5
-            responsibility percentage in copied data over target data: 5.00 %
-         TP1.Resizer 1:
-            resized images: 5
-            responsibility percentage in copied data over target data: 5.00 %
-         TP1.Resizer 2:
-            resized images: 8
-            responsibility percentage in copied data over target data: 8.00 %
-
-   Total Cloners:
-
-      Cloned images: 18
-
-      Cloners: 
-         TP1.Cloner 0:
-            cloned images: 11
-            responsibility percentage in taken data over target data: 11.00 %
-
-         TP1.Cloner 1:
-            cloned images: 7
-            responsibility percentage in taken data over target data: 7.00 %
-
-
-   Threads State:
-
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
-
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
-
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): TIMED_WAITING
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
-
-      TP1.Cloner 0 (Thread ID: 20): TIMED_WAITING
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
 
 *-------------------------------------------------------------------------------*
 
 *-------------------------------------------------------------------------------*
-Execution time: 4.218 [Seg]
+Execution time: 5.598 [Seg]
 InitContainer size at this moment: 80
 InitContainer size: 100
 finalContainer size: 20
@@ -625,15 +831,15 @@ finalContainer size: 20
 
    Total Improvers:
 
-      Improved images: 20
+      Improved images: 159
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 5
+            improved images: 53
          TP1.Improver 1:
-            improved images: 9
+            improved images: 53
          TP1.Improver 2:
-            improved images: 6
+            improved images: 53
 
    Total Resizers:
 
@@ -641,11 +847,11 @@ finalContainer size: 20
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 7
-            responsibility percentage in copied data over target data: 7.00 %
+            resized images: 4
+            responsibility percentage in copied data over target data: 4.00 %
          TP1.Resizer 1:
-            resized images: 5
-            responsibility percentage in copied data over target data: 5.00 %
+            resized images: 8
+            responsibility percentage in copied data over target data: 8.00 %
          TP1.Resizer 2:
             resized images: 8
             responsibility percentage in copied data over target data: 8.00 %
@@ -656,37 +862,35 @@ finalContainer size: 20
 
       Cloners: 
          TP1.Cloner 0:
-            cloned images: 12
-            responsibility percentage in taken data over target data: 12.00 %
-
+            cloned images: 11
+            responsibility percentage in taken data over target data: 11.00 %
          TP1.Cloner 1:
-            cloned images: 8
-            responsibility percentage in taken data over target data: 8.00 %
-
+            cloned images: 9
+            responsibility percentage in taken data over target data: 9.00 %
 
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): RUNNABLE
+      TP1.Resizer 1 (Thread ID: 21): TIMED_WAITING
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
 
 *-------------------------------------------------------------------------------*
-Execution time: 4.731 [Seg]
-InitContainer size at this moment: 75
+
+*-------------------------------------------------------------------------------*
+Execution time: 6.100 [Seg]
+InitContainer size at this moment: 74
 InitContainer size: 100
-finalContainer size: 25
+finalContainer size: 26
 *-------------------------------------------------------------------------------*
 
    Total loaders:
@@ -701,144 +905,66 @@ finalContainer size: 25
 
    Total Improvers:
 
-      Improved images: 25
+      Improved images: 174
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 8
+            improved images: 58
          TP1.Improver 1:
-            improved images: 9
+            improved images: 58
          TP1.Improver 2:
-            improved images: 8
+            improved images: 58
 
    Total Resizers:
 
-      Resized images: 25
+      Resized images: 26
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 10
-            responsibility percentage in copied data over target data: 10.00 %
+            resized images: 7
+            responsibility percentage in copied data over target data: 7.00 %
          TP1.Resizer 1:
-            resized images: 6
-            responsibility percentage in copied data over target data: 6.00 %
-         TP1.Resizer 2:
             resized images: 9
             responsibility percentage in copied data over target data: 9.00 %
+         TP1.Resizer 2:
+            resized images: 10
+            responsibility percentage in copied data over target data: 10.00 %
 
    Total Cloners:
 
-      Cloned images: 25
+      Cloned images: 26
 
       Cloners: 
          TP1.Cloner 0:
             cloned images: 14
             responsibility percentage in taken data over target data: 14.00 %
-
-         TP1.Cloner 1:
-            cloned images: 11
-            responsibility percentage in taken data over target data: 11.00 %
-
-
-   Threads State:
-
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
-
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
-
-      TP1.Resizer 0 (Thread ID: 17): TIMED_WAITING
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
-
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): TIMED_WAITING
-
-*-------------------------------------------------------------------------------*
-
-*-------------------------------------------------------------------------------*
-Execution time: 5.238 [Seg]
-InitContainer size at this moment: 72
-InitContainer size: 100
-finalContainer size: 28
-*-------------------------------------------------------------------------------*
-
-   Total loaders:
-
-      Loaded images: 100
-
-      Loaders: 
-         TP1.Loader 0:
-            loaded images: 50
-         TP1.Loader 1:
-            loaded images: 50
-
-   Total Improvers:
-
-      Improved images: 28
-
-      Improvers: 
-         TP1.Improver 0:
-            improved images: 9
-         TP1.Improver 1:
-            improved images: 11
-         TP1.Improver 2:
-            improved images: 8
-
-   Total Resizers:
-
-      Resized images: 28
-
-      Resizers: 
-         TP1.Resizer 0:
-            resized images: 11
-            responsibility percentage in copied data over target data: 11.00 %
-         TP1.Resizer 1:
-            resized images: 7
-            responsibility percentage in copied data over target data: 7.00 %
-         TP1.Resizer 2:
-            resized images: 10
-            responsibility percentage in copied data over target data: 10.00 %
-
-   Total Cloners:
-
-      Cloned images: 28
-
-      Cloners: 
-         TP1.Cloner 0:
-            cloned images: 16
-            responsibility percentage in taken data over target data: 16.00 %
-
          TP1.Cloner 1:
             cloned images: 12
             responsibility percentage in taken data over target data: 12.00 %
 
-
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): TIMED_WAITING
+      TP1.Resizer 1 (Thread ID: 21): RUNNABLE
+      TP1.Resizer 2 (Thread ID: 22): TIMED_WAITING
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
 
 *-------------------------------------------------------------------------------*
-Execution time: 5.749 [Seg]
-InitContainer size at this moment: 64
+
+*-------------------------------------------------------------------------------*
+Execution time: 6.606 [Seg]
+InitContainer size at this moment: 71
 InitContainer size: 100
-finalContainer size: 36
+finalContainer size: 29
 *-------------------------------------------------------------------------------*
 
    Total loaders:
@@ -853,24 +979,24 @@ finalContainer size: 36
 
    Total Improvers:
 
-      Improved images: 36
+      Improved images: 189
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 11
+            improved images: 63
          TP1.Improver 1:
-            improved images: 14
+            improved images: 63
          TP1.Improver 2:
-            improved images: 11
+            improved images: 63
 
    Total Resizers:
 
-      Resized images: 36
+      Resized images: 29
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 14
-            responsibility percentage in copied data over target data: 14.00 %
+            resized images: 7
+            responsibility percentage in copied data over target data: 7.00 %
          TP1.Resizer 1:
             resized images: 10
             responsibility percentage in copied data over target data: 10.00 %
@@ -880,41 +1006,39 @@ finalContainer size: 36
 
    Total Cloners:
 
-      Cloned images: 36
+      Cloned images: 29
 
       Cloners: 
          TP1.Cloner 0:
-            cloned images: 20
-            responsibility percentage in taken data over target data: 20.00 %
-
-         TP1.Cloner 1:
             cloned images: 16
             responsibility percentage in taken data over target data: 16.00 %
-
+         TP1.Cloner 1:
+            cloned images: 13
+            responsibility percentage in taken data over target data: 13.00 %
 
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): TIMED_WAITING
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): TIMED_WAITING
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): RUNNABLE
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
 
 *-------------------------------------------------------------------------------*
-Execution time: 6.255 [Seg]
-InitContainer size at this moment: 58
+
+*-------------------------------------------------------------------------------*
+Execution time: 7.112 [Seg]
+InitContainer size at this moment: 66
 InitContainer size: 100
-finalContainer size: 42
+finalContainer size: 34
 *-------------------------------------------------------------------------------*
 
    Total loaders:
@@ -929,68 +1053,214 @@ finalContainer size: 42
 
    Total Improvers:
 
-      Improved images: 42
+      Improved images: 204
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 12
+            improved images: 68
          TP1.Improver 1:
-            improved images: 16
+            improved images: 68
          TP1.Improver 2:
-            improved images: 14
+            improved images: 68
 
    Total Resizers:
 
-      Resized images: 42
+      Resized images: 34
+
+      Resizers: 
+         TP1.Resizer 0:
+            resized images: 9
+            responsibility percentage in copied data over target data: 9.00 %
+         TP1.Resizer 1:
+            resized images: 11
+            responsibility percentage in copied data over target data: 11.00 %
+         TP1.Resizer 2:
+            resized images: 14
+            responsibility percentage in copied data over target data: 14.00 %
+
+   Total Cloners:
+
+      Cloned images: 34
+
+      Cloners: 
+         TP1.Cloner 0:
+            cloned images: 19
+            responsibility percentage in taken data over target data: 19.00 %
+         TP1.Cloner 1:
+            cloned images: 15
+            responsibility percentage in taken data over target data: 15.00 %
+
+   Threads State:
+
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
+
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
+
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): RUNNABLE
+      TP1.Resizer 2 (Thread ID: 22): BLOCKED
+
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
+
+*-------------------------------------------------------------------------------*
+
+*-------------------------------------------------------------------------------*
+Execution time: 7.617 [Seg]
+InitContainer size at this moment: 57
+InitContainer size: 100
+finalContainer size: 43
+*-------------------------------------------------------------------------------*
+
+   Total loaders:
+
+      Loaded images: 100
+
+      Loaders: 
+         TP1.Loader 0:
+            loaded images: 50
+         TP1.Loader 1:
+            loaded images: 50
+
+   Total Improvers:
+
+      Improved images: 219
+
+      Improvers: 
+         TP1.Improver 0:
+            improved images: 73
+         TP1.Improver 1:
+            improved images: 73
+         TP1.Improver 2:
+            improved images: 73
+
+   Total Resizers:
+
+      Resized images: 43
+
+      Resizers: 
+         TP1.Resizer 0:
+            resized images: 12
+            responsibility percentage in copied data over target data: 12.00 %
+         TP1.Resizer 1:
+            resized images: 13
+            responsibility percentage in copied data over target data: 13.00 %
+         TP1.Resizer 2:
+            resized images: 18
+            responsibility percentage in copied data over target data: 18.00 %
+
+   Total Cloners:
+
+      Cloned images: 43
+
+      Cloners: 
+         TP1.Cloner 0:
+            cloned images: 23
+            responsibility percentage in taken data over target data: 23.00 %
+         TP1.Cloner 1:
+            cloned images: 20
+            responsibility percentage in taken data over target data: 20.00 %
+
+   Threads State:
+
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
+
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
+
+      TP1.Resizer 0 (Thread ID: 20): TIMED_WAITING
+      TP1.Resizer 1 (Thread ID: 21): RUNNABLE
+      TP1.Resizer 2 (Thread ID: 22): TIMED_WAITING
+
+      TP1.Cloner 0 (Thread ID: 23): TIMED_WAITING
+      TP1.Cloner 1 (Thread ID: 24): TIMED_WAITING
+
+*-------------------------------------------------------------------------------*
+
+*-------------------------------------------------------------------------------*
+Execution time: 8.123 [Seg]
+InitContainer size at this moment: 50
+InitContainer size: 100
+finalContainer size: 50
+*-------------------------------------------------------------------------------*
+
+   Total loaders:
+
+      Loaded images: 100
+
+      Loaders: 
+         TP1.Loader 0:
+            loaded images: 50
+         TP1.Loader 1:
+            loaded images: 50
+
+   Total Improvers:
+
+      Improved images: 234
+
+      Improvers: 
+         TP1.Improver 0:
+            improved images: 78
+         TP1.Improver 1:
+            improved images: 78
+         TP1.Improver 2:
+            improved images: 78
+
+   Total Resizers:
+
+      Resized images: 50
 
       Resizers: 
          TP1.Resizer 0:
             resized images: 15
             responsibility percentage in copied data over target data: 15.00 %
          TP1.Resizer 1:
-            resized images: 13
-            responsibility percentage in copied data over target data: 13.00 %
+            resized images: 15
+            responsibility percentage in copied data over target data: 15.00 %
          TP1.Resizer 2:
-            resized images: 14
-            responsibility percentage in copied data over target data: 14.00 %
+            resized images: 20
+            responsibility percentage in copied data over target data: 20.00 %
 
    Total Cloners:
 
-      Cloned images: 42
+      Cloned images: 50
 
       Cloners: 
          TP1.Cloner 0:
+            cloned images: 26
+            responsibility percentage in taken data over target data: 26.00 %
+         TP1.Cloner 1:
             cloned images: 24
             responsibility percentage in taken data over target data: 24.00 %
 
-         TP1.Cloner 1:
-            cloned images: 18
-            responsibility percentage in taken data over target data: 18.00 %
-
-
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): BLOCKED
+      TP1.Resizer 1 (Thread ID: 21): BLOCKED
+      TP1.Resizer 2 (Thread ID: 22): RUNNABLE
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): RUNNABLE
+      TP1.Cloner 1 (Thread ID: 24): BLOCKED
 
 *-------------------------------------------------------------------------------*
-Execution time: 6.765 [Seg]
-InitContainer size at this moment: 52
+
+*-------------------------------------------------------------------------------*
+Execution time: 8.629 [Seg]
+InitContainer size at this moment: 39
 InitContainer size: 100
-finalContainer size: 48
+finalContainer size: 61
 *-------------------------------------------------------------------------------*
 
    Total loaders:
@@ -1005,167 +1275,15 @@ finalContainer size: 48
 
    Total Improvers:
 
-      Improved images: 48
+      Improved images: 249
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 14
+            improved images: 83
          TP1.Improver 1:
-            improved images: 17
+            improved images: 83
          TP1.Improver 2:
-            improved images: 17
-
-   Total Resizers:
-
-      Resized images: 48
-
-      Resizers: 
-         TP1.Resizer 0:
-            resized images: 17
-            responsibility percentage in copied data over target data: 17.00 %
-         TP1.Resizer 1:
-            resized images: 14
-            responsibility percentage in copied data over target data: 14.00 %
-         TP1.Resizer 2:
-            resized images: 17
-            responsibility percentage in copied data over target data: 17.00 %
-
-   Total Cloners:
-
-      Cloned images: 48
-
-      Cloners: 
-         TP1.Cloner 0:
-            cloned images: 28
-            responsibility percentage in taken data over target data: 28.00 %
-
-         TP1.Cloner 1:
-            cloned images: 20
-            responsibility percentage in taken data over target data: 20.00 %
-
-
-   Threads State:
-
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
-
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
-
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): TIMED_WAITING
-
-      TP1.Cloner 0 (Thread ID: 20): TIMED_WAITING
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
-
-*-------------------------------------------------------------------------------*
-
-*-------------------------------------------------------------------------------*
-Execution time: 7.272 [Seg]
-InitContainer size at this moment: 43
-InitContainer size: 100
-finalContainer size: 57
-*-------------------------------------------------------------------------------*
-
-   Total loaders:
-
-      Loaded images: 100
-
-      Loaders: 
-         TP1.Loader 0:
-            loaded images: 50
-         TP1.Loader 1:
-            loaded images: 50
-
-   Total Improvers:
-
-      Improved images: 57
-
-      Improvers: 
-         TP1.Improver 0:
-            improved images: 19
-         TP1.Improver 1:
-            improved images: 19
-         TP1.Improver 2:
-            improved images: 19
-
-   Total Resizers:
-
-      Resized images: 57
-
-      Resizers: 
-         TP1.Resizer 0:
-            resized images: 19
-            responsibility percentage in copied data over target data: 19.00 %
-         TP1.Resizer 1:
-            resized images: 17
-            responsibility percentage in copied data over target data: 17.00 %
-         TP1.Resizer 2:
-            resized images: 21
-            responsibility percentage in copied data over target data: 21.00 %
-
-   Total Cloners:
-
-      Cloned images: 57
-
-      Cloners: 
-         TP1.Cloner 0:
-            cloned images: 32
-            responsibility percentage in taken data over target data: 32.00 %
-
-         TP1.Cloner 1:
-            cloned images: 25
-            responsibility percentage in taken data over target data: 25.00 %
-
-
-   Threads State:
-
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
-
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
-
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): TIMED_WAITING
-
-      TP1.Cloner 0 (Thread ID: 20): TIMED_WAITING
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
-
-*-------------------------------------------------------------------------------*
-
-*-------------------------------------------------------------------------------*
-Execution time: 7.780 [Seg]
-InitContainer size at this moment: 38
-InitContainer size: 100
-finalContainer size: 62
-*-------------------------------------------------------------------------------*
-
-   Total loaders:
-
-      Loaded images: 100
-
-      Loaders: 
-         TP1.Loader 0:
-            loaded images: 50
-         TP1.Loader 1:
-            loaded images: 50
-
-   Total Improvers:
-
-      Improved images: 62
-
-      Improvers: 
-         TP1.Improver 0:
-            improved images: 20
-         TP1.Improver 1:
-            improved images: 20
-         TP1.Improver 2:
-            improved images: 22
+            improved images: 83
 
    Total Resizers:
 
@@ -1184,41 +1302,39 @@ finalContainer size: 62
 
    Total Cloners:
 
-      Cloned images: 62
+      Cloned images: 61
 
       Cloners: 
          TP1.Cloner 0:
-            cloned images: 35
-            responsibility percentage in taken data over target data: 35.00 %
-
+            cloned images: 32
+            responsibility percentage in taken data over target data: 32.00 %
          TP1.Cloner 1:
-            cloned images: 27
-            responsibility percentage in taken data over target data: 27.00 %
-
+            cloned images: 29
+            responsibility percentage in taken data over target data: 29.00 %
 
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): RUNNABLE
-      TP1.Resizer 1 (Thread ID: 18): TIMED_WAITING
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): TIMED_WAITING
+      TP1.Resizer 1 (Thread ID: 21): TIMED_WAITING
+      TP1.Resizer 2 (Thread ID: 22): TIMED_WAITING
 
-      TP1.Cloner 0 (Thread ID: 20): TIMED_WAITING
-      TP1.Cloner 1 (Thread ID: 21): TIMED_WAITING
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): TIMED_WAITING
+      TP1.Cloner 1 (Thread ID: 24): TIMED_WAITING
 
 *-------------------------------------------------------------------------------*
-Execution time: 8.287 [Seg]
-InitContainer size at this moment: 31
+
+*-------------------------------------------------------------------------------*
+Execution time: 9.134 [Seg]
+InitContainer size at this moment: 28
 InitContainer size: 100
-finalContainer size: 69
+finalContainer size: 72
 *-------------------------------------------------------------------------------*
 
    Total loaders:
@@ -1233,141 +1349,137 @@ finalContainer size: 69
 
    Total Improvers:
 
-      Improved images: 69
+      Improved images: 264
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 21
+            improved images: 88
          TP1.Improver 1:
-            improved images: 21
+            improved images: 88
          TP1.Improver 2:
-            improved images: 27
+            improved images: 88
 
    Total Resizers:
 
-      Resized images: 69
+      Resized images: 72
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 22
-            responsibility percentage in copied data over target data: 22.00 %
+            resized images: 23
+            responsibility percentage in copied data over target data: 23.00 %
          TP1.Resizer 1:
-            resized images: 21
-            responsibility percentage in copied data over target data: 21.00 %
+            resized images: 23
+            responsibility percentage in copied data over target data: 23.00 %
          TP1.Resizer 2:
             resized images: 26
             responsibility percentage in copied data over target data: 26.00 %
 
    Total Cloners:
 
-      Cloned images: 69
+      Cloned images: 72
 
       Cloners: 
          TP1.Cloner 0:
+            cloned images: 38
+            responsibility percentage in taken data over target data: 38.00 %
+         TP1.Cloner 1:
+            cloned images: 34
+            responsibility percentage in taken data over target data: 34.00 %
+
+   Threads State:
+
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
+
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
+
+      TP1.Resizer 0 (Thread ID: 20): TIMED_WAITING
+      TP1.Resizer 1 (Thread ID: 21): TIMED_WAITING
+      TP1.Resizer 2 (Thread ID: 22): RUNNABLE
+
+      TP1.Cloner 0 (Thread ID: 23): TIMED_WAITING
+      TP1.Cloner 1 (Thread ID: 24): TIMED_WAITING
+
+*-------------------------------------------------------------------------------*
+
+*-------------------------------------------------------------------------------*
+Execution time: 9.640 [Seg]
+InitContainer size at this moment: 18
+InitContainer size: 100
+finalContainer size: 82
+*-------------------------------------------------------------------------------*
+
+   Total loaders:
+
+      Loaded images: 100
+
+      Loaders: 
+         TP1.Loader 0:
+            loaded images: 50
+         TP1.Loader 1:
+            loaded images: 50
+
+   Total Improvers:
+
+      Improved images: 276
+
+      Improvers: 
+         TP1.Improver 0:
+            improved images: 92
+         TP1.Improver 1:
+            improved images: 92
+         TP1.Improver 2:
+            improved images: 92
+
+   Total Resizers:
+
+      Resized images: 82
+
+      Resizers: 
+         TP1.Resizer 0:
+            resized images: 26
+            responsibility percentage in copied data over target data: 26.00 %
+         TP1.Resizer 1:
+            resized images: 27
+            responsibility percentage in copied data over target data: 27.00 %
+         TP1.Resizer 2:
+            resized images: 29
+            responsibility percentage in copied data over target data: 29.00 %
+
+   Total Cloners:
+
+      Cloned images: 82
+
+      Cloners: 
+         TP1.Cloner 0:
+            cloned images: 43
+            responsibility percentage in taken data over target data: 43.00 %
+         TP1.Cloner 1:
             cloned images: 39
             responsibility percentage in taken data over target data: 39.00 %
 
-         TP1.Cloner 1:
-            cloned images: 30
-            responsibility percentage in taken data over target data: 30.00 %
-
-
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): TIMED_WAITING
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): TIMED_WAITING
+      TP1.Resizer 1 (Thread ID: 21): TIMED_WAITING
+      TP1.Resizer 2 (Thread ID: 22): TIMED_WAITING
 
-      TP1.Cloner 0 (Thread ID: 20): TIMED_WAITING
-      TP1.Cloner 1 (Thread ID: 21): RUNNABLE
-
-*-------------------------------------------------------------------------------*
-
-*-------------------------------------------------------------------------------*
-Execution time: 8.793 [Seg]
-InitContainer size at this moment: 16
-InitContainer size: 100
-finalContainer size: 84
-*-------------------------------------------------------------------------------*
-
-   Total loaders:
-
-      Loaded images: 100
-
-      Loaders: 
-         TP1.Loader 0:
-            loaded images: 50
-         TP1.Loader 1:
-            loaded images: 50
-
-   Total Improvers:
-
-      Improved images: 84
-
-      Improvers: 
-         TP1.Improver 0:
-            improved images: 27
-         TP1.Improver 1:
-            improved images: 27
-         TP1.Improver 2:
-            improved images: 30
-
-   Total Resizers:
-
-      Resized images: 84
-
-      Resizers: 
-         TP1.Resizer 0:
-            resized images: 27
-            responsibility percentage in copied data over target data: 27.00 %
-         TP1.Resizer 1:
-            resized images: 26
-            responsibility percentage in copied data over target data: 26.00 %
-         TP1.Resizer 2:
-            resized images: 31
-            responsibility percentage in copied data over target data: 31.00 %
-
-   Total Cloners:
-
-      Cloned images: 84
-
-      Cloners: 
-         TP1.Cloner 0:
-            cloned images: 46
-            responsibility percentage in taken data over target data: 46.00 %
-
-         TP1.Cloner 1:
-            cloned images: 38
-            responsibility percentage in taken data over target data: 38.00 %
-
-
-   Threads State:
-
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
-
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
-
-      TP1.Resizer 0 (Thread ID: 17): TIMED_WAITING
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
-
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): TIMED_WAITING
+      TP1.Cloner 0 (Thread ID: 23): TIMED_WAITING
+      TP1.Cloner 1 (Thread ID: 24): RUNNABLE
 
 *-------------------------------------------------------------------------------*
 
 *-------------------------------------------------------------------------------*
-Execution time: 9.296 [Seg]
+Execution time: 10.144 [Seg]
 InitContainer size at this moment: 6
 InitContainer size: 100
 finalContainer size: 94
@@ -1385,15 +1497,15 @@ finalContainer size: 94
 
    Total Improvers:
 
-      Improved images: 94
+      Improved images: 291
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 30
+            improved images: 97
          TP1.Improver 1:
-            improved images: 29
+            improved images: 97
          TP1.Improver 2:
-            improved images: 35
+            improved images: 97
 
    Total Resizers:
 
@@ -1401,11 +1513,11 @@ finalContainer size: 94
 
       Resizers: 
          TP1.Resizer 0:
-            resized images: 31
-            responsibility percentage in copied data over target data: 31.00 %
-         TP1.Resizer 1:
             resized images: 29
             responsibility percentage in copied data over target data: 29.00 %
+         TP1.Resizer 1:
+            resized images: 31
+            responsibility percentage in copied data over target data: 31.00 %
          TP1.Resizer 2:
             resized images: 34
             responsibility percentage in copied data over target data: 34.00 %
@@ -1416,34 +1528,32 @@ finalContainer size: 94
 
       Cloners: 
          TP1.Cloner 0:
-            cloned images: 51
-            responsibility percentage in taken data over target data: 51.00 %
-
+            cloned images: 49
+            responsibility percentage in taken data over target data: 49.00 %
          TP1.Cloner 1:
-            cloned images: 43
-            responsibility percentage in taken data over target data: 43.00 %
-
+            cloned images: 45
+            responsibility percentage in taken data over target data: 45.00 %
 
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
 
-      TP1.Improver 0 (Thread ID: 14): TIMED_WAITING
-      TP1.Improver 1 (Thread ID: 15): TIMED_WAITING
-      TP1.Improver 2 (Thread ID: 16): TIMED_WAITING
+      TP1.Improver 0 (Thread ID: 17): TIMED_WAITING
+      TP1.Improver 1 (Thread ID: 18): TIMED_WAITING
+      TP1.Improver 2 (Thread ID: 19): TIMED_WAITING
 
-      TP1.Resizer 0 (Thread ID: 17): TIMED_WAITING
-      TP1.Resizer 1 (Thread ID: 18): RUNNABLE
-      TP1.Resizer 2 (Thread ID: 19): RUNNABLE
+      TP1.Resizer 0 (Thread ID: 20): RUNNABLE
+      TP1.Resizer 1 (Thread ID: 21): TIMED_WAITING
+      TP1.Resizer 2 (Thread ID: 22): TIMED_WAITING
 
-      TP1.Cloner 0 (Thread ID: 20): RUNNABLE
-      TP1.Cloner 1 (Thread ID: 21): TIMED_WAITING
-
-*-------------------------------------------------------------------------------*
+      TP1.Cloner 0 (Thread ID: 23): BLOCKED
+      TP1.Cloner 1 (Thread ID: 24): RUNNABLE
 
 *-------------------------------------------------------------------------------*
-Execution time: 9.706 [Seg]
+
+*-------------------------------------------------------------------------------*
+Execution time: 10.373 [Seg]
 InitContainer size at this moment: 0
 InitContainer size: 100
 finalContainer size: 100
@@ -1461,15 +1571,15 @@ finalContainer size: 100
 
    Total Improvers:
 
-      Improved images: 100
+      Improved images: 300
 
       Improvers: 
          TP1.Improver 0:
-            improved images: 32
+            improved images: 100
          TP1.Improver 1:
-            improved images: 32
+            improved images: 100
          TP1.Improver 2:
-            improved images: 36
+            improved images: 100
 
    Total Resizers:
 
@@ -1477,14 +1587,14 @@ finalContainer size: 100
 
       Resizers: 
          TP1.Resizer 0:
+            resized images: 31
+            responsibility percentage in copied data over target data: 31.00 %
+         TP1.Resizer 1:
             resized images: 33
             responsibility percentage in copied data over target data: 33.00 %
-         TP1.Resizer 1:
-            resized images: 32
-            responsibility percentage in copied data over target data: 32.00 %
          TP1.Resizer 2:
-            resized images: 35
-            responsibility percentage in copied data over target data: 35.00 %
+            resized images: 36
+            responsibility percentage in copied data over target data: 36.00 %
 
    Total Cloners:
 
@@ -1492,29 +1602,27 @@ finalContainer size: 100
 
       Cloners: 
          TP1.Cloner 0:
-            cloned images: 55
-            responsibility percentage in taken data over target data: 55.00 %
-
+            cloned images: 51
+            responsibility percentage in taken data over target data: 51.00 %
          TP1.Cloner 1:
-            cloned images: 45
-            responsibility percentage in taken data over target data: 45.00 %
-
+            cloned images: 49
+            responsibility percentage in taken data over target data: 49.00 %
 
    Threads State:
 
-      TP1.Loader 0 (Thread ID: 12): TERMINATED
-      TP1.Loader 1 (Thread ID: 13): TERMINATED
+      TP1.Loader 0 (Thread ID: 15): TERMINATED
+      TP1.Loader 1 (Thread ID: 16): TERMINATED
 
-      TP1.Improver 0 (Thread ID: 14): TERMINATED
-      TP1.Improver 1 (Thread ID: 15): TERMINATED
-      TP1.Improver 2 (Thread ID: 16): TERMINATED
+      TP1.Improver 0 (Thread ID: 17): TERMINATED
+      TP1.Improver 1 (Thread ID: 18): TERMINATED
+      TP1.Improver 2 (Thread ID: 19): TERMINATED
 
-      TP1.Resizer 0 (Thread ID: 17): TERMINATED
-      TP1.Resizer 1 (Thread ID: 18): TERMINATED
-      TP1.Resizer 2 (Thread ID: 19): TERMINATED
+      TP1.Resizer 0 (Thread ID: 20): TERMINATED
+      TP1.Resizer 1 (Thread ID: 21): TERMINATED
+      TP1.Resizer 2 (Thread ID: 22): TERMINATED
 
-      TP1.Cloner 0 (Thread ID: 20): TERMINATED
-      TP1.Cloner 1 (Thread ID: 21): TERMINATED
+      TP1.Cloner 0 (Thread ID: 23): TERMINATED
+      TP1.Cloner 1 (Thread ID: 24): TERMINATED
 
 *-------------------------------------------------------------------------------*
 

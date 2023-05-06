@@ -2,13 +2,13 @@ package TP1;
 
 import java.util.Random;
 
+// Contenedor inicial del proceso
 public class InitContainer extends Container {
-    private boolean loadCompleted;
-    private int targetAmountOfImages;
-    private int amountOfImages;
+    private boolean loadCompleted; // Boolean que indica si la carga de imágenes está completa
+    private final int targetAmountOfImages; // Cantidad objetivo de imágenes
+    private int amountOfImages; // Cantidad actual de imágenes
 
-    private static final Object keyLoad = new Object();
-    private static final Object keyCloneDelete = new Object();
+    private final Object keyLoad = new Object(); // Llave para sincronismo en la carga
 
     public InitContainer(int targetAmountOfImages) {
         loadCompleted = false;
@@ -16,7 +16,8 @@ public class InitContainer extends Container {
         this.amountOfImages = 0;
     }
 
-    public boolean load(Image image, Loader loader, int cantidad) throws Exception {
+    // Método de carga de imágenes
+    public boolean load(Image image, Loader loader, int amount) throws FullContainerException {
         synchronized (keyLoad) {
             if (!loadCompleted) {
                 container.addLast(image);
@@ -24,15 +25,18 @@ public class InitContainer extends Container {
                 System.out.println("Loaded image: " + image.getId());
                 if (amountOfImages == targetAmountOfImages) {
                     loadCompleted = true;
-                    loader.setImageLoad(cantidad + 1);
-                    throw new Exception("Contenedor lleno");
+                    loader.setLoadedImages(amount + 1);
+                }
+                else if (amountOfImages > targetAmountOfImages) {
+                    throw new FullContainerException("Contenedor Excedido");
                 }
             }
             return loadCompleted;
         }
     }
 
-    public Image getImage(Image last) {
+    // Método que retorna una imagen aleatoria del contenedor
+    public synchronized Image getImage() {
         if (container.size() > 0) {
             int aux = new Random().nextInt(container.size());
             return container.get(aux);
@@ -41,24 +45,25 @@ public class InitContainer extends Container {
         }
     }
 
-    public boolean isNotLoadCompleted() {
+    // Getter que permite ver si la carga no está completa
+    public boolean isLoadNotCompleted() {
         return !loadCompleted;
     }
 
-    public Image CopyAndDeleted(Image image) throws InterruptedException {
-        synchronized (keyCloneDelete) {
-            if (container.size() > 0 && image.isIamDeletefromInitContainer()) {
+    // Método para copiar y eliminar imagen de este contenedor
+    public synchronized Image copyAndDelete(Image image) {
+            if (container.size() > 0 && image.amIDeletedFromInitContainer()) {
                 Image forClone = new Image(image.getImprovements(), image.getAmIResized(), image.getId(), true,
                         image.getAmIImproved());
                 this.container.remove(image);
-                //System.out.printf("Imagen copiada y borrada del contenedor inicial: " + forClone.getId());
+                System.out.printf("Imagen copiada y borrada del contenedor inicial: " + forClone.getId() + "\n");
                 return forClone;
             } else {
                 return null;
             }
-        }
     }
 
+    // Getter de la cantidad de imágenes en el contenedor
     public int getAmountOfImages() {
         return amountOfImages;
     }
