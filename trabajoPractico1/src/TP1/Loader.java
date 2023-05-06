@@ -27,7 +27,8 @@ public class Loader implements Runnable {
                     TimeUnit.MILLISECONDS.sleep(50);
                 }
             }
-            // Se deja este catch por si por alguna razón aparece alguna excepción, de todos modos no aparecen
+            // Se deja este catch por si por alguna razón aparece alguna excepción, de todos
+            // modos no aparecen
             catch (Exception e) {
                 e.printStackTrace();
             }

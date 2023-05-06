@@ -28,8 +28,7 @@ public class FinalContainer extends Container {
                 if (amountOfImages == targetAmountOfImages) {
                     cloneCompleted = true;
                     cloner.increaseImageClone();
-                }
-                else if (amountOfImages > targetAmountOfImages) {
+                } else if (amountOfImages > targetAmountOfImages) {
                     throw new FullContainerException("Contenedor Excedido");
                 }
             }

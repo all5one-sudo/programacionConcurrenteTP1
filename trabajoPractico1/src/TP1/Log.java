@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 // Clase que crea el Log estadístico para la ejecución del programa
 public class Log extends Thread {
+    
     private final int targetAmountOfData; // Objetivo de imágenes
     private final Date initTime; // Fecha inicial
     private final InitContainer initContainer; // Contenedor inicial
@@ -70,7 +71,7 @@ public class Log extends Thread {
                 writeLog();
                 TimeUnit.MILLISECONDS.sleep(500);
             } catch (InterruptedException e) {
-                writeLog();//?
+                writeLog();// ?
                 break;
             }
         }
@@ -107,7 +108,7 @@ public class Log extends Thread {
             }
             pw_log.println("");
 
-            //////////////////  IMPROVERS  ////////////////////////////
+            ////////////////// IMPROVERS ////////////////////////////
 
             int totalImprovedImages = 0;
             for (Improver improver : improversCopy) {

@@ -5,9 +5,10 @@ package TP1;
  */
 public class FullContainerException extends Exception {
     /**
-     * @param errorMessage Mensaje de error a mostrar: tipicamente: "Contenedor lleno"
+     * @param errorMessage Mensaje de error a mostrar: tipicamente: "Contenedor
+     *                     lleno"
      */
-    public FullContainerException (String errorMessage) {
+    public FullContainerException(String errorMessage) {
         super(errorMessage);
     }
 }

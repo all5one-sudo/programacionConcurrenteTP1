@@ -26,8 +26,7 @@ public class InitContainer extends Container {
                 if (amountOfImages == targetAmountOfImages) {
                     loadCompleted = true;
                     loader.setLoadedImages(amount + 1);
-                }
-                else if (amountOfImages > targetAmountOfImages) {
+                } else if (amountOfImages > targetAmountOfImages) {
                     throw new FullContainerException("Contenedor Excedido");
                 }
             }
@@ -52,15 +51,15 @@ public class InitContainer extends Container {
 
     // Método para copiar y eliminar imagen de este contenedor
     public synchronized Image copyAndDelete(Image image) {
-            if (container.size() > 0 && image.amIDeletedFromInitContainer()) {
-                Image forClone = new Image(image.getImprovements(), image.getAmIResized(), image.getId(), true,
-                        image.getAmIImproved());
-                this.container.remove(image);
-                System.out.printf("Imagen copiada y borrada del contenedor inicial: " + forClone.getId() + "\n");
-                return forClone;
-            } else {
-                return null;
-            }
+        if (container.size() > 0 && image.amIDeletedFromInitContainer()) {
+            Image forClone = new Image(image.getImprovements(), image.getAmIResized(), image.getId(), true,
+                    image.getAmIImproved());
+            this.container.remove(image);
+            System.out.printf("Imagen copiada y borrada del contenedor inicial: " + forClone.getId() + "\n");
+            return forClone;
+        } else {
+            return null;
+        }
     }
 
     // Getter de la cantidad de imágenes en el contenedor

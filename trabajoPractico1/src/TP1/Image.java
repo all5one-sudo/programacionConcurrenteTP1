@@ -16,7 +16,8 @@ public class Image {
     private final Object keyResize = new Object(); // Llave para el sincronismo de resize
     private final Object keyClone = new Object(); // Llave para el sincronismo del clonado
 
-    private boolean iAmDeletedFromInitContainer; // Booleano para indicar si la imagen fue eliminada del contenedor inicial
+    private boolean iAmDeletedFromInitContainer; // Booleano para indicar si la imagen fue eliminada del contenedor
+                                                 // inicial
 
     private boolean iAmImproved; // Booleano para verificar si la imagen está mejorada
 
@@ -76,7 +77,8 @@ public class Image {
         }
     }
 
-    // Getter que indica si la imagen fue mejorada por un cierto hilo Improver que recibe como parámetro
+    // Getter que indica si la imagen fue mejorada por un cierto hilo Improver que
+    // recibe como parámetro
     public boolean isImprovedByThread(Improver improver) {
         return improvements.contains(improver);
     }

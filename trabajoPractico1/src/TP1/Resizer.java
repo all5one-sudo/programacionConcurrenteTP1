@@ -20,12 +20,12 @@ public class Resizer implements Runnable {
     private final int targetAmountOfData; // Cantidad objetivo de imágenes
 
     // Método que reescala las imágenes
-    public Resizer(InitContainer initContainer, String name , int targetAmountOfData) {
+    public Resizer(InitContainer initContainer, String name, int targetAmountOfData) {
         this.initContainer = initContainer;
         this.name = name;
         lastImageResized = null;
         totalImagesResized = 0;
-        this.targetAmountOfData=targetAmountOfData;
+        this.targetAmountOfData = targetAmountOfData;
     }
 
     // Getter de cantidad de imágenes reescaladas
@@ -43,12 +43,12 @@ public class Resizer implements Runnable {
                     if (lastImageResized.getAmIImproved()) {
                         if (lastImageResized.resize()) {
                             System.out.println("Image: " + getlastImageResized().getId() + " resized by: "
-                            + Thread.currentThread().getName());
+                                    + Thread.currentThread().getName());
                             increaseImageResizer();
                             TimeUnit.MILLISECONDS.sleep(100);
                             increaseTotalResizedImages();
-                            if(totalResizedImages == targetAmountOfData){
-                                finishResized=true;
+                            if (totalResizedImages == targetAmountOfData) {
+                                finishResized = true;
                             }
                         }
                     }
@@ -70,7 +70,7 @@ public class Resizer implements Runnable {
     }
 
     // Incrementador de imágenes reescaladas por el proceso
-    public synchronized static void increaseTotalResizedImages(){
+    public synchronized static void increaseTotalResizedImages() {
         totalResizedImages++;
     }
 

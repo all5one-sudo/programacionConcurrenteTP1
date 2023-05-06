@@ -42,7 +42,7 @@ public class Main {
             improversThreads[i].setName(improvers[i].getName() + " (Thread ID: " + improversThreads[i].getId() + ")");
         }
         for (int i = 0; i < numberOfResizers; i++) {
-            resizers[i] = new Resizer(initContainer, "TP1.Resizer " + i , targetAmountOfData);
+            resizers[i] = new Resizer(initContainer, "TP1.Resizer " + i, targetAmountOfData);
             resizerThreads[i] = new Thread(resizers[i]);
             resizerThreads[i].setName(resizers[i].getName() + " (Thread ID: " + resizerThreads[i].getId() + ")");
         }
@@ -66,7 +66,8 @@ public class Main {
         }
         // El Log empieza a tomar datos
         log.start();
-        // Se le hace join() a los hilos para esperar a que mueran y continuar con el main
+        // Se le hace join() a los hilos para esperar a que mueran y continuar con el
+        // main
         try {
             for (Thread waiting : loadersThreads) {
                 waiting.join();

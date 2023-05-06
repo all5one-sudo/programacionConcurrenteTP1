@@ -27,7 +27,7 @@ public class Improver implements Runnable {
         this.totalThreadsImprovements = totalThreadsImprovements;
         totalImagesImprovedByThread = 0;
         lastImprovedImage = null;
-        this.targetAmountOfData=targetAmountOfData;
+        this.targetAmountOfData = targetAmountOfData;
 
     }
 
@@ -45,8 +45,8 @@ public class Improver implements Runnable {
                         TimeUnit.MILLISECONDS.sleep(100);
                         totalImagesImprovedByThread++;
                         increaseTotalImprovedImages();
-                        if(getTotalImprovedImages() == targetAmountOfData*totalThreadsImprovements){
-                            finishImprove=true;
+                        if (getTotalImprovedImages() == targetAmountOfData * totalThreadsImprovements) {
+                            finishImprove = true;
                         }
                     }
                 }
@@ -66,8 +66,9 @@ public class Improver implements Runnable {
         return totalImprovedImages;
     }
 
-    // Método que incrementa la cantidad de imágenes mejoradas por el proceso (clase)
-    public synchronized static void increaseTotalImprovedImages(){
+    // Método que incrementa la cantidad de imágenes mejoradas por el proceso
+    // (clase)
+    public synchronized static void increaseTotalImprovedImages() {
         totalImprovedImages++;
     }
 
